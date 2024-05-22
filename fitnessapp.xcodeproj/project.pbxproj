@@ -16,6 +16,7 @@
 		E79FAE542BF859C90001033F /* fitnessappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE532BF859C90001033F /* fitnessappTests.swift */; };
 		E79FAE5E2BF859C90001033F /* fitnessappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE5D2BF859C90001033F /* fitnessappUITests.swift */; };
 		E79FAE602BF859C90001033F /* fitnessappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE5F2BF859C90001033F /* fitnessappUITestsLaunchTests.swift */; };
+		E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		E79FAE592BF859C90001033F /* fitnessappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fitnessappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79FAE5D2BF859C90001033F /* fitnessappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappUITests.swift; sourceTree = "<group>"; };
 		E79FAE5F2BF859C90001033F /* fitnessappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				E79FAE3D2BF859C60001033F /* fitnessappApp.swift */,
+				E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */,
 				E79FAE3F2BF859C60001033F /* ContentView.swift */,
 				E79FAE412BF859C90001033F /* Assets.xcassets */,
 				E79FAE462BF859C90001033F /* Persistence.swift */,
@@ -267,6 +270,7 @@
 				E79FAE472BF859C90001033F /* Persistence.swift in Sources */,
 				E79FAE402BF859C60001033F /* ContentView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
+				E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
