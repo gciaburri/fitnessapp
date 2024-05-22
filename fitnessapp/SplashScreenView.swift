@@ -17,7 +17,7 @@ struct SplashScreenView: View {
                 Image(systemName: "scribble.variable")
                     .font(.system(size: 100))
                     .foregroundColor(.blue)
-                Text("Scribble App")
+                Text("Fitness App")
                     .font(.system(size: 20))
             }.scaleEffect(scale)
             .onAppear{
@@ -26,7 +26,7 @@ struct SplashScreenView: View {
                 }
             }
         }.onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                 withAnimation {
                     self.isActive = true
                 }

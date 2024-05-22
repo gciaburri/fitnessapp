@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
 		E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3D2BF859C60001033F /* fitnessappApp.swift */; };
 		E79FAE402BF859C60001033F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3F2BF859C60001033F /* ContentView.swift */; };
 		E79FAE422BF859C90001033F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79FAE412BF859C90001033F /* Assets.xcassets */; };
@@ -18,7 +19,7 @@
 		E79FAE602BF859C90001033F /* fitnessappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE5F2BF859C90001033F /* fitnessappUITestsLaunchTests.swift */; };
 		E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */; };
 		E7AD51CD2BFE97010065BB1B /* WeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51CC2BFE97010065BB1B /* WeightsView.swift */; };
-		E7AD51CF2BFE971F0065BB1B /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51CE2BFE971F0065BB1B /* DietView.swift */; };
+		E7AD51CF2BFE971F0065BB1B /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51CE2BFE971F0065BB1B /* NutritionView.swift */; };
 		E7AD51D32BFE974A0065BB1B /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51D22BFE974A0065BB1B /* RunView.swift */; };
 		E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		E79FAE3A2BF859C60001033F /* fitnessapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnessapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79FAE3D2BF859C60001033F /* fitnessappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappApp.swift; sourceTree = "<group>"; };
 		E79FAE3F2BF859C60001033F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		E79FAE5F2BF859C90001033F /* fitnessappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
 		E7AD51CC2BFE97010065BB1B /* WeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsView.swift; sourceTree = "<group>"; };
-		E7AD51CE2BFE971F0065BB1B /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
+		E7AD51CE2BFE971F0065BB1B /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
 		E7AD51D22BFE974A0065BB1B /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 		E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,7 +114,8 @@
 				E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */,
 				E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */,
 				E7AD51CC2BFE97010065BB1B /* WeightsView.swift */,
-				E7AD51CE2BFE971F0065BB1B /* DietView.swift */,
+				E7AD51CE2BFE971F0065BB1B /* NutritionView.swift */,
+				E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */,
 				E7AD51D22BFE974A0065BB1B /* RunView.swift */,
 				E79FAE3F2BF859C60001033F /* ContentView.swift */,
 				E79FAE412BF859C90001033F /* Assets.xcassets */,
@@ -279,13 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7AD51D32BFE974A0065BB1B /* RunView.swift in Sources */,
-				E7AD51CF2BFE971F0065BB1B /* DietView.swift in Sources */,
+				E7AD51CF2BFE971F0065BB1B /* NutritionView.swift in Sources */,
 				E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */,
 				E79FAE4A2BF859C90001033F /* fitnessapp.xcdatamodeld in Sources */,
 				E79FAE472BF859C90001033F /* Persistence.swift in Sources */,
 				E7AD51CD2BFE97010065BB1B /* WeightsView.swift in Sources */,
 				E79FAE402BF859C60001033F /* ContentView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
+				E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */,
 				E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

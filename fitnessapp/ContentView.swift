@@ -12,18 +12,16 @@ struct ContentView: View {
     var body: some View {
         TabView {
             WeightsView()
-                .badge(2)
                 .tabItem {
-                    Label("Received", systemImage: "tray.and.arrow.down.fill")
+                    Label("Weights", systemImage: "dumbbell.fill")
                 }
-            DietView()
+            NutritionView()
                 .tabItem {
-                    Label("Sent", systemImage: "tray.and.arrow.up.fill")
+                    Label("Nutrition", systemImage: "fork.knife")
                 }
             RunView()
-                .badge("!")
                 .tabItem {
-                    Label("Account", systemImage: "person.crop.circle.fill")
+                    Label("Run", systemImage: "figure.run")
                 }
         }
     }
