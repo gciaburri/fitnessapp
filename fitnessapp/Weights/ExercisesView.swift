@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ExercisesView: View {
+    let exercises: [Exercise]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(exercise, id: \.title) { exercise in
+            ExerciseCardView(exercise: exercise)
+
     }
 }
 
 #Preview {
-    ExercisesView()
+    ExercisesView(exercises: Exercise.sampleData)
 }
