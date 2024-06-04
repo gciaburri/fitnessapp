@@ -9,11 +9,16 @@ import SwiftUI
 
 struct ExercisesView: View {
     let exercises: [Exercise]
+    @State private var selectedExercise: Exercise? // Optional Exercise
+    @State private var showingDetail = false
     
     var body: some View {
         NavigationStack {
             List(exercises, id: \.title) { exercise in
-                NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
+                Button(action: {
+                    selectedExercise = exercise
+                    showingDetail = true
+                }) {
                     ExerciseCardView(exercise: exercise)
                         .padding(.vertical, 0)
                         .listRowInsets(EdgeInsets())
@@ -21,8 +26,11 @@ struct ExercisesView: View {
             }
         }
         .navigationTitle("Exercises")
-        
-
+        .sheet(isPresented: $showingDetail) {
+            if let selectedExercise = selectedExercise {
+                ExerciseDetailView(exercise: selectedExercise)
+            }
+        }
     }
 }
 
