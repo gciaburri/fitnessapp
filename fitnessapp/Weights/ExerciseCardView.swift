@@ -16,29 +16,35 @@ struct ExerciseCardView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 60, height: 60)
                 } else if phase.error != nil {
                     // Error occurred
                     Image(systemName: "xmark.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 80)
+                        .frame(width: 60, height: 60)
                 } else {
                     // Placeholder
                     ProgressView()
-                        .frame(width: 80, height: 80)
+                        .frame(width: 60, height: 60)
                 }
             }
             
-            VStack {
+            
+            VStack(alignment: .leading) {
                 Text(exercise.title)
-                Spacer()
+                    .font(.headline.bold())
                 Text(exercise.bodyParts[0])
+                    .font(.footnote)
             }
+            .padding(.leading, 5)
+            Spacer()
         }
+        .padding(.horizontal, 0)
+        .background(Color.white)
     }
 }
 
-#Preview(traits: .fixedLayout(width: 400, height: 80)) {
+#Preview(traits: .defaultLayout) {
     ExerciseCardView(exercise: Exercise.sampleData[0])
 }

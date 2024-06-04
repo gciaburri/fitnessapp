@@ -11,9 +11,11 @@ struct ExercisesView: View {
     let exercises: [Exercise]
     
     var body: some View {
-        List(exercise, id: \.title) { exercise in
+        List(exercises, id: \.title) { exercise in
             ExerciseCardView(exercise: exercise)
-
+                .padding(.vertical, 0)
+                .listRowInsets(EdgeInsets())
+        }
     }
 }
 

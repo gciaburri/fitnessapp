@@ -20,8 +20,14 @@ extension Exercise {
     static let sampleData: [Exercise] =
     [
         Exercise(title: "Bench Press",
-                   imageUrl: "https://ciaburribrand.com/wp-content/uploads/2024/04/Ciaburri-Brand-lg-W.png",
+                   imageUrl: "https://ciaburribrand.com/wp-content/uploads/2020/06/Artboard-1-1.png",
                    bodyParts: ["Chest", "Triceps", "Shoulders"],
+                   description: "",
+                   category: "Barbell"),
+        
+        Exercise(title: "Squat",
+                   imageUrl: "https://ciaburribrand.com/wp-content/uploads/2020/06/Artboard-1-1.png",
+                   bodyParts: ["Legs"],
                    description: "",
                    category: "Barbell")
     ]
