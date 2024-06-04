@@ -11,11 +11,18 @@ struct ExercisesView: View {
     let exercises: [Exercise]
     
     var body: some View {
-        List(exercises, id: \.title) { exercise in
-            ExerciseCardView(exercise: exercise)
-                .padding(.vertical, 0)
-                .listRowInsets(EdgeInsets())
+        NavigationStack {
+            List(exercises, id: \.title) { exercise in
+                NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
+                    ExerciseCardView(exercise: exercise)
+                        .padding(.vertical, 0)
+                        .listRowInsets(EdgeInsets())
+                }
+            }
         }
+        .navigationTitle("Exercises")
+        
+
     }
 }
 

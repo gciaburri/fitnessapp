@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WeightsView: View {
     var body: some View {
-        ExercisesView(exercises: Exercise.sampleData)
+        NavigationStack {
+            ExercisesView(exercises: Exercise.sampleData)
+        }
     }
 }
 

@@ -11,22 +11,23 @@ struct ExerciseCardView: View {
     let exercise: Exercise
     var body: some View {
         HStack {
+            Text("").frame(maxWidth: 0) // empty text so that divider extends from edge to edge
             AsyncImage(url: URL(string: exercise.imageUrl)) { phase in
                 if let image = phase.image {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                 } else if phase.error != nil {
                     // Error occurred
                     Image(systemName: "xmark.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                 } else {
                     // Placeholder
                     ProgressView()
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                 }
             }
             

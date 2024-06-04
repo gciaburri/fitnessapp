@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
+		E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */; };
 		E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3D2BF859C60001033F /* fitnessappApp.swift */; };
 		E79FAE402BF859C60001033F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3F2BF859C60001033F /* ContentView.swift */; };
 		E79FAE422BF859C90001033F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79FAE412BF859C90001033F /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		E79FAE3A2BF859C60001033F /* fitnessapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnessapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79FAE3D2BF859C60001033F /* fitnessappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappApp.swift; sourceTree = "<group>"; };
 		E79FAE3F2BF859C60001033F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				E7AD51CC2BFE97010065BB1B /* WeightsView.swift */,
 				E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */,
 				E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */,
+				E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */,
 			);
 			path = Weights;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E7AD51D32BFE974A0065BB1B /* RunView.swift in Sources */,
 				E7AD51CF2BFE971F0065BB1B /* NutritionView.swift in Sources */,
 				E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */,
+				E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */,
 				E79FAE4A2BF859C90001033F /* fitnessapp.xcdatamodeld in Sources */,
 				E79FAE472BF859C90001033F /* Persistence.swift in Sources */,
 				E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */,

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Exercise {
+struct Exercise: Identifiable{
+    let id = UUID()
     var title: String
     var imageUrl: String
     var bodyParts: [String]
