@@ -12,7 +12,6 @@ struct ExerciseDetailView: View {
     
     let exercise: Exercise
     var body: some View {
-        //        NavigationStack {
         VStack {
             AsyncImage(url: URL(string: exercise.imageUrl)) { phase in
                 if let image = phase.image {

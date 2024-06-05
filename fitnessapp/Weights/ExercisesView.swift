@@ -21,35 +21,25 @@ struct ExercisesView: View {
                         .foregroundColor(.gray)
                         .padding()
                 } else {
-                    ForEach(searchResults, id: \.title) { exercise in                                     Button(action: {
+                    ForEach(searchResults, id: \.title) { exercise in
+                        Button(action: {
                             selectedExercise = exercise
-                            showingDetail = true
-                    }) {
-                        ExerciseCardView(exercise: exercise)
-                            .padding(.vertical, 0)
-                            .listRowInsets(EdgeInsets())
+                        }) {
+                            ExerciseCardView(exercise: exercise)
+                                .padding(.vertical, 0)
+                                .listRowInsets(EdgeInsets())
+                        }
                     }
                 }
             }
-        }
             .navigationTitle("Exercises")
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always))
-            .sheet(isPresented: $showingDetail, onDismiss: {
-                selectedExercise = nil
-            }) {
-                if let selectedExercise = selectedExercise {
-                    NavigationStack {
-                        ExerciseDetailView(exercise: selectedExercise)
-                    }
-                }
+            .sheet(item: $selectedExercise) { exercise in
+                ExerciseDetailView(exercise: exercise)
             }
-            .onChange(of: selectedExercise) { newValue, oldValue in
-                        showingDetail = newValue != nil
-                    }
         }
     }
-    
     
     var searchResults: [Exercise] {
         if searchText.isEmpty {
