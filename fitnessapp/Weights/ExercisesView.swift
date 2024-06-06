@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExercisesView: View {
-    let exercises: [Exercise]
-    @State private var selectedExercise: Exercise? // Optional Exercise
-    @State private var showingDetail = false
+    @Bindable var exercises: ExercisesViewModel
+    @State private var showDetail: Bool = false
+    @State private var selectedExercise: Exercise? = nil// Optional Exercise
     @State private var searchText = ""
     
     var body: some View {
@@ -21,7 +21,7 @@ struct ExercisesView: View {
                         .foregroundColor(.gray)
                         .padding()
                 } else {
-                    ForEach(searchResults, id: \.title) { exercise in
+                    ForEach(searchResults, id: \.id) { exercise in
                         Button(action: {
                             selectedExercise = exercise
                         }) {
@@ -49,13 +49,13 @@ struct ExercisesView: View {
     
     var searchResults: [Exercise] {
         if searchText.isEmpty {
-            return exercises
+            return exercises.exercises
         } else {
-            return exercises.filter { $0.title.contains(searchText) }
+            return exercises.exercises.filter { $0.title.contains(searchText) }
         }
     }
 }
 
 #Preview {
-    ExercisesView(exercises: Exercise.sampleData)
+    ExercisesView(exercises: ExercisesViewModel(exercises: Exercise.sampleData))
 }

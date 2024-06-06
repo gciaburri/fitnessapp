@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ExerciseDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @Bindable var exercise: Exercise
     
-    let exercise: Exercise
+    @State private var editingExercise = Exercise.emptyExercise
+    @State private var isPresentingEditView = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -47,6 +50,34 @@ struct ExerciseDetailView: View {
                         Image(systemName: "xmark")
                             .foregroundColor(.blue)
                     }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Edit", action: {
+                        editingExercise = exercise
+                        isPresentingEditView = true
+                    })
+                }
+            }
+            .sheet(isPresented: $isPresentingEditView) {
+                NavigationStack {
+                    ExerciseDetailEditView(exercise: $editingExercise)
+                        .navigationTitle(exercise.title)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancel") {
+                                    isPresentingEditView = false
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") {
+                                    exercise.title = editingExercise.title
+                                    exercise.bodyPart = editingExercise.bodyPart
+                                    exercise.imageUrl = editingExercise.imageUrl
+                                    exercise.description = editingExercise.description
+                                    isPresentingEditView = false
+                                }
+                            }
+                        }
                 }
             }
         }

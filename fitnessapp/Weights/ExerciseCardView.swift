@@ -33,7 +33,7 @@ struct ExerciseCardView: View {
             VStack(alignment: .leading) {
                 Text(exercise.title)
                     .font(.headline.bold())
-                Text(exercise.bodyParts[0])
+                Text(exercise.bodyPart)
                     .font(.footnote)
             }
             .padding(.leading, 5)
