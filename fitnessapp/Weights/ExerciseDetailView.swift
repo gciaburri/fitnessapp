@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var exercise: Exercise
+    @Bindable var exercise: Exercise
     
     @State private var editingExercise = Exercise.emptyExercise
     @State private var isPresentingEditView = false
@@ -70,7 +70,10 @@ struct ExerciseDetailView: View {
                             }
                             ToolbarItem(placement: .confirmationAction) {
                                 Button("Done") {
-                                    exercise = editingExercise
+                                    exercise.title = editingExercise.title
+                                    exercise.bodyPart = editingExercise.bodyPart
+                                    exercise.imageUrl = editingExercise.imageUrl
+                                    exercise.description = editingExercise.description
                                     isPresentingEditView = false
                                 }
                             }
@@ -82,5 +85,5 @@ struct ExerciseDetailView: View {
 }
 
 #Preview {
-    ExerciseDetailView(exercise: .constant(Exercise.sampleData[0]))
+    ExerciseDetailView(exercise: Exercise.sampleData[0])
 }

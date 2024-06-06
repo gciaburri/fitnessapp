@@ -26,7 +26,7 @@
 		E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */; };
 		E7B8F9AB2C0E6D8000CAD5BF /* ExerciseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */; };
 		E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9AD2C0E6DC000CAD5BF /* Exercise.swift */; };
-		E7B8F9B02C1224F600CAD5BF /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9AF2C1224F600CAD5BF /* ExercisesViewModel.swift */; };
+		E7B8F9B22C1226B800CAD5BF /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardView.swift; sourceTree = "<group>"; };
 		E7B8F9AD2C0E6DC000CAD5BF /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		E7B8F9AF2C1224F600CAD5BF /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
+		E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +169,7 @@
 				E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */,
 				E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */,
 				E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */,
-				E7B8F9AF2C1224F600CAD5BF /* ExercisesViewModel.swift */,
+				E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */,
 			);
 			path = Weights;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
 				E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */,
-				E7B8F9B02C1224F600CAD5BF /* ExercisesViewModel.swift in Sources */,
+				E7B8F9B22C1226B800CAD5BF /* ExercisesViewModel.swift in Sources */,
 				E7B8F9AB2C0E6D8000CAD5BF /* ExerciseCardView.swift in Sources */,
 				E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */,
 			);

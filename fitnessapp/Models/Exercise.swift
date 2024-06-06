@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Exercise: Identifiable, Equatable {
+@Observable
+class Exercise: Identifiable, Equatable {
     let id: UUID
     var title: String
     var imageUrl: String

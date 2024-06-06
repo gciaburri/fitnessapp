@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExercisesView: View {
-    @Binding var exercises: [Exercise]
+    @Bindable var exercises: ExercisesViewModel
     @State private var showDetail: Bool = false
     @State private var selectedExercise: Exercise? = nil// Optional Exercise
     @State private var searchText = ""
@@ -41,16 +41,7 @@ struct ExercisesView: View {
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always))
             .sheet(item: $selectedExercise) { exercise in
-                ExerciseDetailView(exercise: Binding(
-                    get: {
-                        exercise
-                    },
-                    set: { newExercise in
-                        if let index = exercises.firstIndex(where: { $0.id == newExercise.id }) {
-                            exercises[index] = newExercise
-                        }
-                    }
-                ))
+                ExerciseDetailView(exercise: exercise)
             }
             .listStyle(.plain)
         }
@@ -58,13 +49,13 @@ struct ExercisesView: View {
     
     var searchResults: [Exercise] {
         if searchText.isEmpty {
-            return exercises
+            return exercises.exercises
         } else {
-            return exercises.filter { $0.title.contains(searchText) }
+            return exercises.exercises.filter { $0.title.contains(searchText) }
         }
     }
 }
 
 #Preview {
-    ExercisesView(exercises: .constant(Exercise.sampleData))
+    ExercisesView(exercises: ExercisesViewModel(exercises: Exercise.sampleData))
 }
