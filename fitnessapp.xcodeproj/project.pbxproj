@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */; };
 		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
 		E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */; };
 		E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3D2BF859C60001033F /* fitnessappApp.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailEditView.swift; sourceTree = "<group>"; };
 		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		E79FAE3A2BF859C60001033F /* fitnessapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnessapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */,
 				E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */,
 				E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */,
+				E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */,
 			);
 			path = Weights;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */,
 				E7AD51CD2BFE97010065BB1B /* WeightsView.swift in Sources */,
 				E79FAE402BF859C60001033F /* ContentView.swift in Sources */,
+				E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
 				E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */,
 				E7B8F9AB2C0E6D8000CAD5BF /* ExerciseCardView.swift in Sources */,

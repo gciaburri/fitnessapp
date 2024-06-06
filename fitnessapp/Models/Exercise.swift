@@ -44,7 +44,7 @@ extension Exercise {
         
         Exercise(title: "Squat",
                    imageUrl: "https://ciaburribrand.com/wp-content/uploads/2020/06/Artboard-1-1.png",
-                   bodyParts: "Legs",
+                   bodyPart: "Legs",
                    description: "",
                    category: "Barbell")
     ]

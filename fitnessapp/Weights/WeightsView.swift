@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct WeightsView: View {
+    @State private var exercises = Exercise.sampleData
     var body: some View {
         NavigationStack {
-            ExercisesView(exercises: Exercise.sampleData)
+            ExercisesView(exercises: $exercises)
         }
     }
 }

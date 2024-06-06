@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ExerciseDetailEditView: View {
+    @Binding var exercise: Exercise
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text("Edit Exercise")) {
+                TextField("Title", text: $exercise.title)
+                
+            }
+        }
     }
 }
 
 #Preview {
-    ExerciseDetailEditView()
+    ExerciseDetailEditView(exercise: .constant(Exercise.sampleData[0]))
 }

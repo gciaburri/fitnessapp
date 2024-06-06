@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ExercisesView: View {
-    let exercises: [Exercise]
-    @State private var selectedExercise: Exercise? // Optional Exercise
-    @State private var showingDetail = false
+    @Binding var exercises: [Exercise]
+    @State private var selectedExercise: Exercise? = nil// Optional Exercise
     @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
-            List {
+            List($exercises) { $exercise in
                 if searchResults.isEmpty {
                     Text("No exercises found")
                         .foregroundColor(.gray)
@@ -57,5 +56,5 @@ struct ExercisesView: View {
 }
 
 #Preview {
-    ExercisesView(exercises: Exercise.sampleData)
+    ExercisesView(exercises: .constant(Exercise.sampleData))
 }
