@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ExercisesView: View {
     @Binding var exercises: [Exercise]
+    @State private var showDetail: Bool = false
     @State private var selectedExercise: Exercise? = nil// Optional Exercise
     @State private var searchText = ""
     
     var body: some View {
         NavigationStack {
-            List($exercises) { $exercise in
+            List {
                 if searchResults.isEmpty {
                     Text("No exercises found")
                         .foregroundColor(.gray)
                         .padding()
                 } else {
-                    ForEach(searchResults, id: \.title) { exercise in
+                    ForEach(searchResults, id: \.id) { exercise in
                         Button(action: {
                             selectedExercise = exercise
                         }) {
@@ -40,7 +41,16 @@ struct ExercisesView: View {
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always))
             .sheet(item: $selectedExercise) { exercise in
-                ExerciseDetailView(exercise: exercise)
+                ExerciseDetailView(exercise: Binding(
+                    get: {
+                        exercise
+                    },
+                    set: { newExercise in
+                        if let index = exercises.firstIndex(where: { $0.id == newExercise.id }) {
+                            exercises[index] = newExercise
+                        }
+                    }
+                ))
             }
             .listStyle(.plain)
         }

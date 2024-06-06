@@ -53,12 +53,12 @@ struct ExerciseDetailView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Edit", action: {
-                        isPresentingEditView = true
                         editingExercise = exercise
+                        isPresentingEditView = true
                     })
                 }
             }
-            .sheet(isPresented: $isPresentingEditView, content: {
+            .sheet(isPresented: $isPresentingEditView) {
                 NavigationStack {
                     ExerciseDetailEditView(exercise: $editingExercise)
                         .navigationTitle(exercise.title)
@@ -70,13 +70,13 @@ struct ExerciseDetailView: View {
                             }
                             ToolbarItem(placement: .confirmationAction) {
                                 Button("Done") {
-                                    isPresentingEditView = false
                                     exercise = editingExercise
+                                    isPresentingEditView = false
                                 }
                             }
                         }
                 }
-            })
+            }
         }
     }
 }
