@@ -33,11 +33,17 @@ struct ExercisesView: View {
                 }
             }
             .navigationTitle("Exercises")
+            .toolbar {
+                Button(action: {}) {
+                    Image(systemName: "plus")
+                }
+            }
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always))
             .sheet(item: $selectedExercise) { exercise in
                 ExerciseDetailView(exercise: exercise)
             }
+            .listStyle(.plain)
         }
     }
     
