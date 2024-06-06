@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct Exercise: Identifiable{
+struct Exercise: Identifiable, Equatable {
     let id = UUID()
     var title: String
     var imageUrl: String
     var bodyParts: [String]
     var description: String
     var category: String
+    
+    static func == (lhs: Exercise, rhs: Exercise) -> Bool {
+            return lhs.id == rhs.id
+        }
 }
 
 

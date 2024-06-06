@@ -37,14 +37,18 @@ struct ExerciseDetailView: View {
                         .padding()
                 }
             }
-            .navigationBarItems(leading: Button(action: {
-                dismiss()
-            }) {
-                Image(systemName: "xmark")
-                    .foregroundColor(.blue)
-            })
             .navigationTitle(exercise.title)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.blue)
+                    }
+                }
+            }
         }
     }
 }

@@ -30,8 +30,6 @@ struct ExerciseCardView: View {
                         .frame(width: 50, height: 50)
                 }
             }
-            
-            
             VStack(alignment: .leading) {
                 Text(exercise.title)
                     .font(.headline.bold())
