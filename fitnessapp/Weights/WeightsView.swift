@@ -11,7 +11,8 @@ struct WeightsView: View {
     @State private var exercises = ExercisesViewModel(exercises: Exercise.sampleData)
     var body: some View {
         NavigationStack {
-            ExercisesView(exercises: exercises)
+            NavigationLink("Exercises") {ExercisesView(exercises: exercises) }
+            NavigationLink("Workout") {StartWorkoutView()}
         }
     }
 }
