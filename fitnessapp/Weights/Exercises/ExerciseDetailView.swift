@@ -36,7 +36,7 @@ struct ExerciseDetailView: View {
                     }
                 }
                 ScrollView {
-                    Text(exercise.description)
+                    Text(exercise.info)
                         .padding()
                 }
             }
@@ -73,7 +73,7 @@ struct ExerciseDetailView: View {
                                     exercise.title = editingExercise.title
                                     exercise.bodyPart = editingExercise.bodyPart
                                     exercise.imageUrl = editingExercise.imageUrl
-                                    exercise.description = editingExercise.description
+                                    exercise.info = editingExercise.info
                                     isPresentingEditView = false
                                 }
                             }
