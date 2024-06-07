@@ -10,7 +10,6 @@ import SwiftUI
 struct ExerciseDetailEditView: View {
     @Binding var exercise: Exercise
     
-    
     var body: some View {
         Form {
             Section(header: Text("Edit Exercise")) {
