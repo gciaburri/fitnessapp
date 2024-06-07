@@ -9,12 +9,14 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     var body: some View {
-        VStack {
-            Text("Start Workout")
-            NavigationLink {
-                CurrentWorkoutView()
-            } label: {
-                Text("Start New Workout")
+        NavigationStack {
+            VStack {
+                Text("Start Workout")
+                NavigationLink {
+                    CurrentWorkoutView()
+                } label: {
+                    Text("Start New Workout")
+                }
             }
         }
     }
