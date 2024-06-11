@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ExerciseDetailEditView: View {
-    @Binding var exercise: Exercise
+    @Environment(\.modelContext) var modelContext
+    @Bindable var exercise: Exercise
+    
     
     var body: some View {
         Form {
@@ -22,6 +24,6 @@ struct ExerciseDetailEditView: View {
     }
 }
 
-#Preview {
-    ExerciseDetailEditView(exercise: .constant(Exercise.sampleData[0]))
-}
+//#Preview {
+//    ExerciseDetailEditView(exercise: .constant(Exercise.sampleData[0]))
+//}

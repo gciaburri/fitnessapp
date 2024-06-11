@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct WeightsView: View {
-    @State private var exercises = ExercisesViewModel(exercises: Exercise.sampleData)
+    @Environment(\.modelContext) private var context
+//    @State private var exercises = ExercisesViewModel(exercises: Exercise.sampleData)
     var body: some View {
         NavigationStack {
             VStack {
                 NavigationLink("Exercises") {
-                    ExercisesView(exercises: exercises)
+                    ExercisesView()
                 }
                 NavigationLink("Workout") {
                     StartWorkoutView()

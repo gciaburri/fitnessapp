@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ExercisesView: View {
-    @Bindable var exercises: ExercisesViewModel
+    @Query var exercises: [Exercise]
+    @Environment(\.modelContext) var modelContext
+
+//    @Bindable var exercises: ExercisesViewModel
     @State private var isPresentingNewExerciseView = false
     @State private var showDetail: Bool = false
     @State private var selectedExercise: Exercise? = nil// Optional Exercise
@@ -40,6 +44,7 @@ struct ExercisesView: View {
                 }) {
                     Image(systemName: "plus")
                 }
+                Button("Add Samples", action: addSamples)
             }
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always))
@@ -47,21 +52,24 @@ struct ExercisesView: View {
                 ExerciseDetailView(exercise: exercise)
             }
             .sheet(isPresented: $isPresentingNewExerciseView) {
-                NewExerciseSheet(exercises: exercises, isPresentingNewExerciseView: $isPresentingNewExerciseView)
+                NewExerciseSheet(isPresentingNewExerciseView: $isPresentingNewExerciseView)
             }
             .listStyle(.plain)
         }
     }
-    
+    func addSamples() {
+        let benchPress = Exercise(title: "Bench Press", imageUrl: "", bodyPart: "Chest", info: "Ex. exercise", category: "Free Weight")
+        modelContext.insert(benchPress)
+    }
     var searchResults: [Exercise] {
         if searchText.isEmpty {
-            return exercises.exercises
+            return exercises
         } else {
-            return exercises.exercises.filter { $0.title.contains(searchText) }
+            return exercises.filter { $0.title.contains(searchText) }
         }
     }
 }
 
-#Preview {
-    ExercisesView(exercises: ExercisesViewModel(exercises: Exercise.sampleData))
-}
+//#Preview {
+//    ExercisesView(exercises: exercises)
+//}

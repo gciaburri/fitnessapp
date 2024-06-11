@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct NewExerciseSheet: View {
+    @Environment(\.modelContext) var modelContext
     @State private var newExercise = Exercise.emptyExercise
-    @Bindable var exercises: ExercisesViewModel
     @Binding var isPresentingNewExerciseView: Bool
     
     var body: some View {
         NavigationStack {
-            ExerciseDetailEditView(exercise: $newExercise)
+            ExerciseDetailEditView(exercise: newExercise)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dismiss") {
@@ -24,16 +24,17 @@ struct NewExerciseSheet: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Add") {
-                            exercises.exercises.append(newExercise)
+                            modelContext.insert(newExercise)
                             isPresentingNewExerciseView = false
                         }
                         .foregroundColor(.blue)
                     }
+                    
                 }
         }
     }
 }
 
-#Preview {
-    NewExerciseSheet(exercises: ExercisesViewModel(exercises: Exercise.sampleData), isPresentingNewExerciseView: .constant(true))
-}
+//#Preview {
+//    NewExerciseSheet(exercises: ExercisesViewModel(exercises: Exercise.sampleData), isPresentingNewExerciseView: .constant(true))
+//}

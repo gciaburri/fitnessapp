@@ -60,7 +60,7 @@ struct ExerciseDetailView: View {
             }
             .sheet(isPresented: $isPresentingEditView) {
                 NavigationStack {
-                    ExerciseDetailEditView(exercise: $editingExercise)
+                    ExerciseDetailEditView(exercise: editingExercise)
                         .navigationTitle(exercise.title)
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {

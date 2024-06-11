@@ -8,9 +8,8 @@
 import Foundation
 import SwiftData
 
-@Observable
 @Model
-class Exercise: Identifiable, Equatable, Codable {
+class Exercise: Equatable {
     let id: UUID
     var title: String
     var imageUrl: String
@@ -30,8 +29,9 @@ class Exercise: Identifiable, Equatable, Codable {
         self.info = info
         self.category = category
     }
+    
     static var emptyExercise: Exercise {
-        Exercise(title: "", imageUrl: "", bodyPart: "", description: "", category: "")
+        Exercise(title: "", imageUrl: "", bodyPart: "", info: "", category: "")
     }
 }
 
