@@ -10,8 +10,8 @@ import SwiftUI
 struct ExerciseDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var exercise: Exercise
+    @Environment(\.modelContext) var modelContext
     
-    @State private var editingExercise = Exercise.emptyExercise
     @State private var isPresentingEditView = false
     
     var body: some View {
@@ -53,31 +53,14 @@ struct ExerciseDetailView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Edit", action: {
-                        editingExercise = exercise
                         isPresentingEditView = true
                     })
                 }
             }
             .sheet(isPresented: $isPresentingEditView) {
                 NavigationStack {
-                    ExerciseDetailEditView(exercise: editingExercise)
+                    ExerciseDetailEditView(exerciseID: exercise.id, in: modelContext.container)
                         .navigationTitle(exercise.title)
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Cancel") {
-                                    isPresentingEditView = false
-                                }
-                            }
-                            ToolbarItem(placement: .confirmationAction) {
-                                Button("Done") {
-                                    exercise.title = editingExercise.title
-                                    exercise.bodyPart = editingExercise.bodyPart
-                                    exercise.imageUrl = editingExercise.imageUrl
-                                    exercise.info = editingExercise.info
-                                    isPresentingEditView = false
-                                }
-                            }
-                        }
                 }
             }
         }
