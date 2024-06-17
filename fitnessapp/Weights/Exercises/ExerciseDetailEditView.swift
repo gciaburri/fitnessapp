@@ -21,14 +21,12 @@ struct ExerciseDetailEditView: View {
     
     
     var body: some View {
-        NavigationStack{
-            Form {
-                Section(header: Text("Edit Exercise")) {
-                    TextField("Title", text: $exercise.title)
-                    TextField("Body Part", text: $exercise.bodyPart)
-                    TextField("Image URL", text: $exercise.imageUrl)
-                    TextField("Description", text: $exercise.info)
-                }
+        Form {
+            Section(header: Text("Edit Exercise")) {
+                TextField("Title", text: $exercise.title)
+                TextField("Body Part", text: $exercise.bodyPart)
+                TextField("Image URL", text: $exercise.imageUrl)
+                TextField("Description", text: $exercise.info)
             }
         }
         .toolbar {
@@ -46,6 +44,7 @@ struct ExerciseDetailEditView: View {
         }
     }
 }
+
 
 //#Preview {
 //    ExerciseDetailEditView(exercise: .constant(Exercise.sampleData[0]))

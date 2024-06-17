@@ -34,7 +34,7 @@
 //        }
 //    }
 //}
-
-//#Preview {
-//    NewExerciseSheet(exercises: ExercisesViewModel(exercises: Exercise.sampleData), isPresentingNewExerciseView: .constant(true))
-//}
+//
+////#Preview {
+////    NewExerciseSheet(exercises: ExercisesViewModel(exercises: Exercise.sampleData), isPresentingNewExerciseView: .constant(true))
+////}

@@ -8,9 +8,8 @@
 import SwiftUI
 import SwiftData
 
+
 struct WeightsView: View {
-    @Environment(\.modelContext) private var context
-//    @State private var exercises = ExercisesViewModel(exercises: Exercise.sampleData)
     var body: some View {
         NavigationStack {
             VStack {

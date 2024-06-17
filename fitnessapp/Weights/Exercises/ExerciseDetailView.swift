@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    @Environment(\.dismiss) private var dismiss
-    @Bindable var exercise: Exercise
-    @Environment(\.modelContext) var modelContext
     
     @State private var isPresentingEditView = false
-    
+    @Bindable var exercise: Exercise
+    @Environment(\.modelContext) var modelContext
+
     var body: some View {
-        NavigationStack {
             VStack {
                 AsyncImage(url: URL(string: exercise.imageUrl)) { phase in
                     if let image = phase.image {
@@ -43,14 +41,6 @@ struct ExerciseDetailView: View {
             .navigationTitle(exercise.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.blue)
-                    }
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Edit", action: {
                         isPresentingEditView = true
@@ -63,7 +53,6 @@ struct ExerciseDetailView: View {
                         .navigationTitle(exercise.title)
                 }
             }
-        }
     }
 }
 
