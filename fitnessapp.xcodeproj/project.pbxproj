@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E714BB9E2C141207002610AC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E714BB9D2C141207002610AC /* Workout.swift */; };
 		E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */; };
-		E75DA6982C12B9CC009C3046 /* NewExerciseSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DA6972C12B9CC009C3046 /* NewExerciseSheet.swift */; };
 		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
 		E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */; };
 		E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3D2BF859C60001033F /* fitnessappApp.swift */; };
 		E79FAE402BF859C60001033F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE3F2BF859C60001033F /* ContentView.swift */; };
 		E79FAE422BF859C90001033F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79FAE412BF859C90001033F /* Assets.xcassets */; };
 		E79FAE452BF859C90001033F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79FAE442BF859C90001033F /* Preview Assets.xcassets */; };
-		E79FAE472BF859C90001033F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE462BF859C90001033F /* Persistence.swift */; };
-		E79FAE4A2BF859C90001033F /* fitnessapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE482BF859C90001033F /* fitnessapp.xcdatamodeld */; };
 		E79FAE542BF859C90001033F /* fitnessappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE532BF859C90001033F /* fitnessappTests.swift */; };
 		E79FAE5E2BF859C90001033F /* fitnessappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE5D2BF859C90001033F /* fitnessappUITests.swift */; };
 		E79FAE602BF859C90001033F /* fitnessappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79FAE5F2BF859C90001033F /* fitnessappUITestsLaunchTests.swift */; };
@@ -27,7 +25,6 @@
 		E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */; };
 		E7B8F9AB2C0E6D8000CAD5BF /* ExerciseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */; };
 		E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9AD2C0E6DC000CAD5BF /* Exercise.swift */; };
-		E7B8F9B22C1226B800CAD5BF /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */; };
 		E7B8F9B42C12774700CAD5BF /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9B32C12774700CAD5BF /* WorkoutsView.swift */; };
 		E7B8F9B62C127A6200CAD5BF /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9B52C127A6200CAD5BF /* StartWorkoutView.swift */; };
 		E7B8F9BB2C127C1A00CAD5BF /* CurrentWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */; };
@@ -52,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E714BB9D2C141207002610AC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailEditView.swift; sourceTree = "<group>"; };
-		E75DA6972C12B9CC009C3046 /* NewExerciseSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseSheet.swift; sourceTree = "<group>"; };
 		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		E79FAE3A2BF859C60001033F /* fitnessapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnessapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,8 +58,6 @@
 		E79FAE3F2BF859C60001033F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E79FAE412BF859C90001033F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E79FAE442BF859C90001033F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E79FAE462BF859C90001033F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		E79FAE492BF859C90001033F /* fitnessapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fitnessapp.xcdatamodel; sourceTree = "<group>"; };
 		E79FAE4F2BF859C90001033F /* fitnessappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fitnessappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79FAE532BF859C90001033F /* fitnessappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitnessappTests.swift; sourceTree = "<group>"; };
 		E79FAE592BF859C90001033F /* fitnessappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fitnessappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +70,6 @@
 		E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCardView.swift; sourceTree = "<group>"; };
 		E7B8F9AD2C0E6DC000CAD5BF /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
 		E7B8F9B32C12774700CAD5BF /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		E7B8F9B52C127A6200CAD5BF /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWorkoutView.swift; sourceTree = "<group>"; };
@@ -139,8 +133,6 @@
 				E7AD51D22BFE974A0065BB1B /* RunView.swift */,
 				E79FAE3F2BF859C60001033F /* ContentView.swift */,
 				E79FAE412BF859C90001033F /* Assets.xcassets */,
-				E79FAE462BF859C90001033F /* Persistence.swift */,
-				E79FAE482BF859C90001033F /* fitnessapp.xcdatamodeld */,
 				E79FAE432BF859C90001033F /* Preview Content */,
 			);
 			path = fitnessapp;
@@ -196,8 +188,6 @@
 				E7B8F9AA2C0E6D8000CAD5BF /* ExerciseCardView.swift */,
 				E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */,
 				E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */,
-				E7B8F9B12C1226B800CAD5BF /* ExercisesViewModel.swift */,
-				E75DA6972C12B9CC009C3046 /* NewExerciseSheet.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -209,6 +199,7 @@
 				E7B8F9B52C127A6200CAD5BF /* StartWorkoutView.swift */,
 				E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */,
 				E7B8F9BC2C12811000CAD5BF /* RestTimerView.swift */,
+				E714BB9D2C141207002610AC /* Workout.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -345,10 +336,9 @@
 			files = (
 				E7AD51D32BFE974A0065BB1B /* RunView.swift in Sources */,
 				E7AD51CF2BFE971F0065BB1B /* NutritionView.swift in Sources */,
+				E714BB9E2C141207002610AC /* Workout.swift in Sources */,
 				E7AD51D52BFE978D0065BB1B /* SplashScreenView.swift in Sources */,
 				E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */,
-				E79FAE4A2BF859C90001033F /* fitnessapp.xcdatamodeld in Sources */,
-				E79FAE472BF859C90001033F /* Persistence.swift in Sources */,
 				E7B8F9B42C12774700CAD5BF /* WorkoutsView.swift in Sources */,
 				E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */,
 				E7AD51CD2BFE97010065BB1B /* WeightsView.swift in Sources */,
@@ -356,10 +346,8 @@
 				E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
 				E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */,
-				E7B8F9B22C1226B800CAD5BF /* ExercisesViewModel.swift in Sources */,
 				E7B8F9BD2C12811000CAD5BF /* RestTimerView.swift in Sources */,
 				E7B8F9BB2C127C1A00CAD5BF /* CurrentWorkoutView.swift in Sources */,
-				E75DA6982C12B9CC009C3046 /* NewExerciseSheet.swift in Sources */,
 				E7B8F9B62C127A6200CAD5BF /* StartWorkoutView.swift in Sources */,
 				E7B8F9AB2C0E6D8000CAD5BF /* ExerciseCardView.swift in Sources */,
 				E7AD51CB2BFE95890065BB1B /* ViewCoordinator.swift in Sources */,
@@ -692,19 +680,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E79FAE482BF859C90001033F /* fitnessapp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E79FAE492BF859C90001033F /* fitnessapp.xcdatamodel */,
-			);
-			currentVersion = E79FAE492BF859C90001033F /* fitnessapp.xcdatamodel */;
-			path = fitnessapp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E79FAE322BF859C60001033F /* Project object */;
 }

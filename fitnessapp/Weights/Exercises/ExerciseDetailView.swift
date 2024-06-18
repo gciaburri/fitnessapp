@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
-    @Environment(\.dismiss) private var dismiss
-    @Bindable var exercise: Exercise
+    //  @Environment(\.dismiss) private var dismiss
     
-    @State private var editingExercise = Exercise.emptyExercise
     @State private var isPresentingEditView = false
-    
+    var exercise: Exercise
+    @Environment(\.modelContext) var modelContext
+
     var body: some View {
-        NavigationStack {
             VStack {
                 AsyncImage(url: URL(string: exercise.imageUrl)) { phase in
                     if let image = phase.image {
@@ -36,51 +35,25 @@ struct ExerciseDetailView: View {
                     }
                 }
                 ScrollView {
-                    Text(exercise.description)
+                    Text(exercise.info)
                         .padding()
                 }
             }
             .navigationTitle(exercise.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.blue)
-                    }
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Edit", action: {
-                        editingExercise = exercise
                         isPresentingEditView = true
                     })
                 }
             }
             .sheet(isPresented: $isPresentingEditView) {
                 NavigationStack {
-                    ExerciseDetailEditView(exercise: $editingExercise)
+                    ExerciseDetailEditView(exercise: exercise, isNewExercise: false)
                         .navigationTitle(exercise.title)
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Cancel") {
-                                    isPresentingEditView = false
-                                }
-                            }
-                            ToolbarItem(placement: .confirmationAction) {
-                                Button("Done") {
-                                    exercise.title = editingExercise.title
-                                    exercise.bodyPart = editingExercise.bodyPart
-                                    exercise.imageUrl = editingExercise.imageUrl
-                                    exercise.description = editingExercise.description
-                                    isPresentingEditView = false
-                                }
-                            }
-                        }
                 }
             }
-        }
     }
 }
 

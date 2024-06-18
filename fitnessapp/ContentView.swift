@@ -12,8 +12,10 @@ struct ContentView: View {
     var body: some View {
         TabView {
             WeightsView()
+                .modelContainer(for: Exercise.self)
                 .tabItem {
                     Label("Weights", systemImage: "dumbbell.fill")
+                
                 }
             NutritionView()
                 .tabItem {

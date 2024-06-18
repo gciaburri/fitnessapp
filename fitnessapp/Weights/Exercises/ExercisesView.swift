@@ -6,62 +6,47 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ExercisesView: View {
-    @Bindable var exercises: ExercisesViewModel
+    @Environment(\.modelContext) var modelContext
+    @Query var exercises: [Exercise]
     @State private var isPresentingNewExerciseView = false
-    @State private var showDetail: Bool = false
-    @State private var selectedExercise: Exercise? = nil// Optional Exercise
-    @State private var searchText = ""
     
     var body: some View {
-        NavigationStack {
             List {
-                if searchResults.isEmpty {
-                    Text("No exercises found")
-                        .foregroundColor(.gray)
-                        .padding()
-                } else {
-                    ForEach(searchResults, id: \.id) { exercise in
-                        Button(action: {
-                            selectedExercise = exercise
-                        }) {
-                            ExerciseCardView(exercise: exercise)
-                                .padding(.vertical, 0)
-                                .listRowInsets(EdgeInsets())
-                        }
+                ForEach(exercises) { exercise in
+                    NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
+                        ExerciseCardView(exercise: exercise)
+                            .padding(.vertical, 0)
+                            .listRowInsets(EdgeInsets())
                     }
                 }
             }
             .navigationTitle("Exercises")
             .toolbar {
                 Button(action: {
-                    isPresentingNewExerciseView = true 
+                    isPresentingNewExerciseView = true
                 }) {
                     Image(systemName: "plus")
                 }
-            }
-            .searchable(text: $searchText,
-                        placement: .navigationBarDrawer(displayMode: .always))
-            .sheet(item: $selectedExercise) { exercise in
-                ExerciseDetailView(exercise: exercise)
+                Button("Add Samples", action: addSamples)
             }
             .sheet(isPresented: $isPresentingNewExerciseView) {
-                NewExerciseSheet(exercises: exercises, isPresentingNewExerciseView: $isPresentingNewExerciseView)
+                NavigationStack{
+                    ExerciseDetailEditView(exercise: Exercise.emptyExercise, isNewExercise: true)
+                        .navigationTitle("New Exercise")
+                }
             }
             .listStyle(.plain)
-        }
+        
     }
-    
-    var searchResults: [Exercise] {
-        if searchText.isEmpty {
-            return exercises.exercises
-        } else {
-            return exercises.exercises.filter { $0.title.contains(searchText) }
-        }
+    func addSamples() {
+        let benchPress = Exercise(title: "Bench Press", imageUrl: "", bodyPart: "Chest", info: "Ex. exercise", category: "Free Weight")
+        modelContext.insert(benchPress)
     }
 }
 
-#Preview {
-    ExercisesView(exercises: ExercisesViewModel(exercises: Exercise.sampleData))
-}
+//#Preview {
+//    ExercisesView(exercises: exercises)
+//}
