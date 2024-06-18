@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
+    //  @Environment(\.dismiss) private var dismiss
     
     @State private var isPresentingEditView = false
-    @Bindable var exercise: Exercise
+    var exercise: Exercise
     @Environment(\.modelContext) var modelContext
 
     var body: some View {
@@ -49,7 +50,7 @@ struct ExerciseDetailView: View {
             }
             .sheet(isPresented: $isPresentingEditView) {
                 NavigationStack {
-                    ExerciseDetailEditView(exerciseID: exercise.id, in: modelContext.container)
+                    ExerciseDetailEditView(exercise: exercise, isNewExercise: false)
                         .navigationTitle(exercise.title)
                 }
             }

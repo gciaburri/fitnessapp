@@ -32,9 +32,12 @@ struct ExercisesView: View {
                 }
                 Button("Add Samples", action: addSamples)
             }
-//            .sheet(isPresented: $isPresentingNewExerciseView) {
-//                NewExerciseSheet(isPresentingNewExerciseView: $isPresentingNewExerciseView)
-//            }
+            .sheet(isPresented: $isPresentingNewExerciseView) {
+                NavigationStack{
+                    ExerciseDetailEditView(exercise: Exercise.emptyExercise, isNewExercise: true)
+                        .navigationTitle("New Exercise")
+                }
+            }
             .listStyle(.plain)
         
     }

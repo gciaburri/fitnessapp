@@ -15,6 +15,6 @@ struct fitnessappApp: App {
         WindowGroup {
             ViewCoordinator()
         }
-        .modelContainer(for: Exercise.self)
+        .modelContainer(for: Exercise.self, isAutosaveEnabled: false)
     }
 }

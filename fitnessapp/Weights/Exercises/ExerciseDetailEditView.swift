@@ -10,23 +10,24 @@ import SwiftData
 
 struct ExerciseDetailEditView: View {
     @Environment(\.dismiss) var dismiss
-    @Bindable var exercise: Exercise
-    var modelContext: ModelContext
+    var exercise: Exercise
+    @Environment(\.modelContext) var modelContext
+    @State private var editedExercise: Exercise
+    var isNewExercise: Bool
     
-    init(exerciseID: PersistentIdentifier, in container: ModelContainer) {
-        modelContext = ModelContext(container)
-        modelContext.autosaveEnabled = false
-        exercise = modelContext.model(for: exerciseID) as? Exercise ?? Exercise(title: "New Exercise", imageUrl: "", bodyPart: "", info: "", category: "")
+    init(exercise: Exercise, isNewExercise: Bool = false) {
+        self.exercise = exercise
+        self._editedExercise = State(initialValue: exercise.copy())
+        self.isNewExercise = isNewExercise
     }
-    
     
     var body: some View {
         Form {
-            Section(header: Text("Edit Exercise")) {
-                TextField("Title", text: $exercise.title)
-                TextField("Body Part", text: $exercise.bodyPart)
-                TextField("Image URL", text: $exercise.imageUrl)
-                TextField("Description", text: $exercise.info)
+            Section(header: Text(isNewExercise ? "New Exercise" : "Edit Exercise")) {
+                TextField("Title", text: $editedExercise.title)
+                TextField("Body Part", text: $editedExercise.bodyPart)
+                TextField("Image URL", text: $editedExercise.imageUrl)
+                TextField("Description", text: $editedExercise.info)
             }
         }
         .toolbar {
@@ -36,12 +37,36 @@ struct ExerciseDetailEditView: View {
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") {
-                    try? modelContext.save()
+                Button(isNewExercise ? "Add" : "Save") {
+                    saveChanges()
                     dismiss()
                 }
+                .disabled(!isValidExercise)
             }
         }
+        
+    }
+    private var isValidExercise: Bool {
+        !editedExercise.title.isEmpty && !editedExercise.bodyPart.isEmpty
+    }
+    
+    private func saveChanges() {
+        if isNewExercise {
+            modelContext.insert(editedExercise)
+        } else {
+            exercise.title = editedExercise.title
+            exercise.title = editedExercise.title
+            exercise.title = editedExercise.title
+            exercise.title = editedExercise.title
+        }
+        try? modelContext.save()
+    }
+    
+}
+
+extension Exercise {
+    func copy() -> Exercise {
+        return Exercise(id: self.id, title: self.title, imageUrl: self.imageUrl, bodyPart: self.bodyPart, info: self.info, category: self.category)
     }
 }
 
