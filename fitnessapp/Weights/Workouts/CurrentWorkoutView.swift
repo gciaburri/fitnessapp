@@ -11,6 +11,11 @@ struct CurrentWorkoutView: View {
     var body: some View {
         VStack {
             Text("Current Workout")
+            Button(action: {
+                
+            }) {
+                Text("Add Exercise")
+            }
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+@Model
 class Workout {
     let id: UUID
     var title: String
