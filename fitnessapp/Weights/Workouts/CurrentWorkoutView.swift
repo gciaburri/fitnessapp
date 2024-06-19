@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct CurrentWorkoutView: View {
+    @Environment(\.modelContext) var modelContext
+    var workout: Workout
+    
     var body: some View {
         VStack {
             Text("Current Workout")
             Button(action: {
-                
+                workoutExercise = WorkoutExercise(exercise: 
+                Workout.workoutExercises.append(WorkoutExercise:
             }) {
                 Text("Add Exercise")
             }
@@ -20,6 +24,6 @@ struct CurrentWorkoutView: View {
     }
 }
 
-#Preview {
-    CurrentWorkoutView()
-}
+//#Preview {
+//    CurrentWorkoutView()
+//}

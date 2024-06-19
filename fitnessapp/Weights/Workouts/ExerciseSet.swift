@@ -13,12 +13,11 @@ class ExerciseSet: Identifiable {
     let id: UUID
     var reps: Int
     var weight: Double
-    var exercise: Exercise
     
-    init(id: UUID = UUID(), reps: Int, weight: Double, exercise: Exercise) {
+    
+    init(id: UUID = UUID(), reps: Int, weight: Double) {
         self.id = id
         self.reps = reps
         self.weight = weight
-        self.exercise = exercise
     }
 }

@@ -13,22 +13,22 @@ class Workout {
     let id: UUID
     var title: String
     var dateCreated: Date
-    var exerciseSets: [ExerciseSet]
+    var workoutExercises: [WorkoutExercise]
     
-    init(id: UUID = UUID(), title: String, dateCreated: Date = Date(), exerciseSets: [ExerciseSet] = []) {
+    init(id: UUID = UUID(), title: String, dateCreated: Date = Date(), workoutExercises: [WorkoutExercise] = []) {
         self.id = id
         self.title = title
         self.dateCreated = dateCreated
-        self.exerciseSets = exerciseSets
+        self.workoutExercises = workoutExercises
     }
     
-    func addSet(_ set: ExerciseSet) {
-        exerciseSets.append(set)
+    func addExercise(_ set: WorkoutExercise) {
+        workoutExercises.append(set)
     }
     
-    func removeSet(_ set: ExerciseSet) {
-        if let index = exerciseSets.firstIndex(where: { $0.id == set.id}) {
-            exerciseSets.remove(at: index)
+    func removeExercise(_ set: WorkoutExercise) {
+        if let index = workoutExercises.firstIndex(where: { $0.id == set.id}) {
+            workoutExercises.remove(at: index)
         }
     }
 }
