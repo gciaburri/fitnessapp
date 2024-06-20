@@ -6,19 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CurrentWorkoutView: View {
     @Environment(\.modelContext) var modelContext
-    var workout: Workout
+    @State private var selectedExercises = Set<UUID>()
+    
+//    var workout: Workout
     
     var body: some View {
         VStack {
             Text("Current Workout")
-            Button(action: {
-                workoutExercise = WorkoutExercise(exercise: 
-                Workout.workoutExercises.append(WorkoutExercise:
-            }) {
-                Text("Add Exercise")
+            NavigationLink("Select Exercises") {
+                ExerciseSelectionView(selectedExercises: $selectedExercises)
             }
         }
     }
