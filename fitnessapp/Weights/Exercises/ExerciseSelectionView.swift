@@ -9,9 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ExerciseSelectionView: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
     @Query var exercises: [Exercise]
     @Binding var selectedExercises: Set<UUID>
+    @Binding var currentWorkout: Workout
     
     var body: some View {
         List {
@@ -22,14 +24,43 @@ struct ExerciseSelectionView: View {
                     } else {
                         selectedExercises.insert(exercise.id)
                     }
+                    
                 }
-                        .padding(.vertical, 0)
-                        .listRowInsets(EdgeInsets())
-                
+                .listRowBackground(selectedExercises.contains(exercise.id) ? Color.accentColor.opacity(0.1) : nil)
+                .padding(.vertical, 1)
+            }
+        }
+        .listStyle(.plain)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button(action: {
+                    selectedExercises.removeAll()
+                    dismiss()
+                }) {
+                    Text("Cancel")
+                }
+            }
+            ToolbarItem(placement: .confirmationAction) {
+                Button(action: {
+                    addSelectedExercisesToWorkout()
+                    dismiss()
+                }) {
+                    Text("Done")
+                }
             }
         }
     }
+    
+    private func addSelectedExercisesToWorkout() {
+        let selectedExercisesList = exercises.filter { selectedExercises.contains($0.id) }
+        for exercise in selectedExercisesList {
+            let workoutExercise = WorkoutExercise(exercise: exercise)
+            currentWorkout.workoutExercises.append(workoutExercise)
+            modelContext.insert(workoutExercise)
+        }
+    }
 }
+
 
 //#Preview {
 //    ExerciseSelectionView()

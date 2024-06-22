@@ -14,13 +14,14 @@ struct ExercisesView: View {
     @State private var isPresentingNewExerciseView = false
     
     var body: some View {
-            List {
+        List {
                 ForEach(exercises) { exercise in
                     NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
                         ExerciseCardView(exercise: exercise)
-                            .padding(.vertical, 0)
-                            .listRowInsets(EdgeInsets())
+                            .padding(.vertical, 1)
+
                     }
+                    .buttonStyle(.plain)
                 }
             }
             .navigationTitle("Exercises")

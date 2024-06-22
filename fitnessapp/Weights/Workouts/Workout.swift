@@ -22,12 +22,12 @@ class Workout {
         self.workoutExercises = workoutExercises
     }
     
-    func addExercise(_ set: WorkoutExercise) {
-        workoutExercises.append(set)
+    func addExercise(_ workoutExercise: WorkoutExercise) {
+        workoutExercises.append(workoutExercise)
     }
     
-    func removeExercise(_ set: WorkoutExercise) {
-        if let index = workoutExercises.firstIndex(where: { $0.id == set.id}) {
+    func removeExercise(_ workoutExercise: WorkoutExercise) {
+        if let index = workoutExercises.firstIndex(where: { $0.id == workoutExercise.id}) {
             workoutExercises.remove(at: index)
         }
     }

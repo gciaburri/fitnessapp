@@ -42,15 +42,13 @@ struct ExerciseCardSelectView: View {
             .padding(.leading, 5)
             Spacer()
             Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                .onTapGesture {
-                    action()
-                }
-                .padding(.horizontal, 0)
+                .padding(.trailing)
         }
-        .padding(.horizontal, 0)
-        .background(Color.white)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            action()
+        }
     }
-    
 }
 
 //#Preview {

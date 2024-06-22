@@ -40,7 +40,6 @@ struct ExerciseCardView: View {
             Spacer()
         }
         .padding(.horizontal, 0)
-        .background(Color.white)
     }
 }
 
