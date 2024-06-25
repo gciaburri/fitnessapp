@@ -42,7 +42,7 @@ struct ExerciseSelectionView: View {
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
-                    addSelectedExercisesToWorkout()
+                    addSelectedExercisesToWorkout(context: modelContext)
                     dismiss()
                 }) {
                     Text("Done")
@@ -51,7 +51,7 @@ struct ExerciseSelectionView: View {
         }
     }
     
-    private func addSelectedExercisesToWorkout() {
+    private func addSelectedExercisesToWorkout(context: ModelContext) {
         let selectedExercisesList = exercises.filter { selectedExercises.contains($0.id) }
         for exercise in selectedExercisesList {
             let workoutExercise = WorkoutExercise(exercise: exercise)
