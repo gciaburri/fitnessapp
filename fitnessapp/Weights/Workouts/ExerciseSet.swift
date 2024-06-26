@@ -10,14 +10,18 @@ import SwiftData
 
 @Model
 class ExerciseSet: Identifiable {
-    let id: UUID
+    let setNumber: Int
     var reps: Int
     var weight: Double
     
     
-    init(id: UUID = UUID(), reps: Int, weight: Double) {
-        self.id = id
+    init(setNumber: Int, reps: Int, weight: Double) {
+        self.setNumber = setNumber
         self.reps = reps
         self.weight = weight
+    }
+    
+    static var emptySet: ExerciseSet {
+        ExerciseSet(setNumber: 1, reps: 0, weight: 0)
     }
 }

@@ -22,12 +22,11 @@ struct CurrentWorkoutView: View {
             Text("Current Workout")
             List {
                 ForEach(currentWorkout.workoutExercises) { workoutExercise in
-                    if let exercise = workoutExercise.exercise {
-                        Text(exercise.title)
-                            .padding(.vertical, 1)
-                    }
+                    WorkoutExerciseView(workoutExercise: workoutExercise)
                 }
             }
+            .listStyle(.plain)
+
             Button(action: {
                 isSelectingExercises = true
             }) {

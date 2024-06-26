@@ -15,7 +15,7 @@ class WorkoutExercise: Identifiable {
     var workout: Workout?
     var sets: [ExerciseSet] = [ExerciseSet]()
     
-    init(id: UUID = UUID(), exercise: Exercise, sets: [ExerciseSet] = []) {
+    init(id: UUID = UUID(), exercise: Exercise, sets: [ExerciseSet] = [ExerciseSet.emptySet]) {
         self.id = id
         self.exercise = exercise
         self.sets = sets
