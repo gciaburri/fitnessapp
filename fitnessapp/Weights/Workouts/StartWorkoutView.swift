@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 struct StartWorkoutView: View {
+    @Environment(\.modelContext) var modelContext
     @Query var workouts: [Workout]
     @State var currentWorkout = Workout(title: "New Workout")
     

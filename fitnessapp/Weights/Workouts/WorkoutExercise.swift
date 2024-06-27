@@ -20,4 +20,15 @@ class WorkoutExercise: Identifiable {
         self.exercise = exercise
         self.sets = sets
     }
+    func addSet() {
+        let newSet = ExerciseSet(setNumber: self.sets.count + 1, reps: 0, weight: 0)
+        self.sets.append(newSet)
+    }
+    var sortedSets: [ExerciseSet] {
+        get {
+            sets.sorted(by: {$0.setNumber < $1.setNumber})
+        } set {
+            sets = newValue
+        }
+    }
 }

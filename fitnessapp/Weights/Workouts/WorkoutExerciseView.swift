@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WorkoutExerciseView: View {
-    var workoutExercise: WorkoutExercise
+    @Environment(\.modelContext) var modelContext
+    @State var workoutExercise: WorkoutExercise
     let setNumber = 0
 
     var body: some View {
@@ -31,16 +32,21 @@ struct WorkoutExerciseView: View {
                 Image(systemName: "checkmark.rectangle.fill")
                     .frame(maxWidth: .infinity)
             }
-            ForEach(workoutExercise.sets) {set in
-                ExerciseSetView(exerciseSet: set)
-            }
-            Button(action: {
-                let newSetNumber = (workoutExercise.sets.last?.setNumber ?? 0) + 1
-                let newSet = ExerciseSet(setNumber: newSetNumber, reps: 0, weight: 0)
-                workoutExercise.sets.append(newSet)
-            }) {
-                Text("Add Set")
-            }
+            ForEach(workoutExercise.sortedSets) {set in
+                        ExerciseSetView(exerciseSet: set)
+                            .padding(.vertical, 3)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .listRowSeparator(.hidden)
+                
+                Text("test")
+            Button(action: {workoutExercise.addSet()}) {
+                    Text("Add Set")
+                }
+                .padding(.top)
+                .buttonStyle(.plain)
+            
+
         }
     }
 }

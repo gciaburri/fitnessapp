@@ -13,6 +13,7 @@ struct ViewCoordinator: View {
     var body: some View {
         if isActive {
             ContentView()
+
         }else {
             SplashScreenView(isActive: $isActive)
         }
