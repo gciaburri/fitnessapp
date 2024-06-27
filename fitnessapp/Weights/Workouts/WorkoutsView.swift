@@ -13,7 +13,11 @@ struct WorkoutsView: View {
     @Query var workouts: [Workout]
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(workouts) { workout in
+                WorkoutCardView(workout: workout)
+            }
+        }
     }
 }
 

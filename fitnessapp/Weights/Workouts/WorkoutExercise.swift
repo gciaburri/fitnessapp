@@ -31,4 +31,7 @@ class WorkoutExercise: Identifiable {
             sets = newValue
         }
     }
+    var bestSet: ExerciseSet {
+        return sets.max {$0.weight > $1.weight} ?? ExerciseSet.emptySet
+    }
 }

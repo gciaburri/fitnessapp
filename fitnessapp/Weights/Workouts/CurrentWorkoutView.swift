@@ -10,7 +10,6 @@ import SwiftData
 
 struct CurrentWorkoutView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var workouts: [Workout]
     @State private var selectedExercises = Set<UUID>()
     @State private var isSelectingExercises = false
     @Binding var currentWorkout: Workout

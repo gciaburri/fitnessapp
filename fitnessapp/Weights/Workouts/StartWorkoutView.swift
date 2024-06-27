@@ -21,12 +21,11 @@ struct StartWorkoutView: View {
                 } label: {
                     Text("Start New Workout")
                 }
-                ForEach(workouts) {workout in
-                        Text(workout.title)
-                            .padding(.vertical, 1)
-                    
+                NavigationLink {
+                    WorkoutsView()
+                } label: {
+                    Text("View Workouts")
                 }
-                
             }
         }
     }
