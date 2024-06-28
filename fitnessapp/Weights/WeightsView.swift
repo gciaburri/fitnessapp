@@ -10,6 +10,7 @@ import SwiftData
 
 
 struct WeightsView: View {
+    
     var body: some View {
         NavigationStack {
             VStack {

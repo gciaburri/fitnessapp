@@ -9,6 +9,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @Environment(\.currentWorkout) var currentWorkout
+
     var body: some View {
         TabView {
             WeightsView()

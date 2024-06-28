@@ -13,7 +13,7 @@ struct WorkoutExerciseView: View {
     let setNumber = 0
 
     var body: some View {
-        VStack {
+        LazyVStack {
             HStack {
                 Text(workoutExercise.exercise?.title ?? "Empty")
                 Spacer()
@@ -33,14 +33,14 @@ struct WorkoutExerciseView: View {
                     .frame(maxWidth: .infinity)
             }
             ForEach(workoutExercise.sortedSets) {set in
-                        ExerciseSetView(exerciseSet: set)
+                        ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
                             .padding(.vertical, 3)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     .listRowSeparator(.hidden)
                 
                 Text("test")
-            Button(action: {workoutExercise.addSet()}) {
+            Button(action: {workoutExercise.addSet(context: modelContext)}) {
                     Text("Add Set")
                 }
                 .padding(.top)

@@ -20,9 +20,11 @@ class WorkoutExercise: Identifiable {
         self.exercise = exercise
         self.sets = sets
     }
-    func addSet() {
+    func addSet(context: ModelContext) {
         let newSet = ExerciseSet(setNumber: self.sets.count + 1, reps: 0, weight: 0)
         self.sets.append(newSet)
+        context.insert(newSet)
+        
     }
     var sortedSets: [ExerciseSet] {
         get {
@@ -32,6 +34,6 @@ class WorkoutExercise: Identifiable {
         }
     }
     var bestSet: ExerciseSet {
-        return sets.max {$0.weight > $1.weight} ?? ExerciseSet.emptySet
+        return sets.max {$1.weight > $0.weight} ?? ExerciseSet.emptySet
     }
 }

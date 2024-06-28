@@ -12,30 +12,34 @@ struct CurrentWorkoutView: View {
     @Environment(\.modelContext) var modelContext
     @State private var selectedExercises = Set<UUID>()
     @State private var isSelectingExercises = false
-    @Binding var currentWorkout: Workout
-    
-//    var workout: Workout
+    @Binding var currentWorkout: Workout?
     
     var body: some View {
-        VStack {
-            Text("Current Workout")
-            List {
-                ForEach(currentWorkout.workoutExercises) { workoutExercise in
-                    WorkoutExerciseView(workoutExercise: workoutExercise)
+        if let currentWorkout = currentWorkout {
+            VStack {
+                Text("Current Workout")
+                    .font(.headline)
+                    .padding()
+                List {
+                    ForEach(currentWorkout.workoutExercises) { workoutExercise in
+                        WorkoutExerciseView(workoutExercise: workoutExercise)
+                    }
                 }
-            }
-            .listStyle(.plain)
-
-            Button(action: {
-                isSelectingExercises = true
-            }) {
-                Text("Select Exercises")
-            }
-            .sheet(isPresented: $isSelectingExercises, content: {
-                NavigationStack {
-                    ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
+                .listStyle(.plain)
+                
+                Button(action: {
+                    isSelectingExercises = true
+                }) {
+                    Text("Select Exercises")
                 }
-            })
+                .sheet(isPresented: $isSelectingExercises, content: {
+                    NavigationStack {
+                        ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
+                    }
+                })
+            }
+        } else {
+            Text("No current workout")
         }
     }
 }

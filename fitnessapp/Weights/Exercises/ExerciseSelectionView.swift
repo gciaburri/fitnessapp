@@ -13,7 +13,7 @@ struct ExerciseSelectionView: View {
     @Environment(\.modelContext) var modelContext
     @Query var exercises: [Exercise]
     @Binding var selectedExercises: Set<UUID>
-    @Binding var currentWorkout: Workout
+    @Binding var currentWorkout: Workout?
     
     var body: some View {
         List {
@@ -55,7 +55,7 @@ struct ExerciseSelectionView: View {
         let selectedExercisesList = exercises.filter { selectedExercises.contains($0.id) }
         for exercise in selectedExercisesList {
             let workoutExercise = WorkoutExercise(exercise: exercise)
-            currentWorkout.workoutExercises.append(workoutExercise)
+            currentWorkout!.workoutExercises.append(workoutExercise)
             modelContext.insert(workoutExercise)
         }
     }

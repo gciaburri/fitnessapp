@@ -13,12 +13,14 @@ class Workout {
     let id: UUID
     var title: String
     var dateCreated: Date
+    var completed: Bool = false
     var workoutExercises: [WorkoutExercise]
     
-    init(id: UUID = UUID(), title: String, dateCreated: Date = Date(), workoutExercises: [WorkoutExercise] = []) {
+    init(id: UUID = UUID(), title: String, dateCreated: Date = Date(), completed: Bool = false, workoutExercises: [WorkoutExercise] = []) {
         self.id = id
         self.title = title
         self.dateCreated = dateCreated
+        self.completed = completed
         self.workoutExercises = workoutExercises
     }
     

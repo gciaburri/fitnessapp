@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExerciseSetView: View {
     @State var exerciseSet: ExerciseSet
+    @Binding var workoutExercise: WorkoutExercise
     
     var body: some View {
         HStack {

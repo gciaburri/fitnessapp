@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E714BB9E2C141207002610AC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E714BB9D2C141207002610AC /* Workout.swift */; };
+		E74262042C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74262032C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift */; };
 		E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */; };
 		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
 		E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		E714BB9D2C141207002610AC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		E74262032C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+CurrentWorkout.swift"; sourceTree = "<group>"; };
 		E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailEditView.swift; sourceTree = "<group>"; };
 		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		E79FAE3C2BF859C60001033F /* fitnessapp */ = {
 			isa = PBXGroup;
 			children = (
+				E74262032C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift */,
 				E79FAE3D2BF859C60001033F /* fitnessappApp.swift */,
 				E7AD51CA2BFE95890065BB1B /* ViewCoordinator.swift */,
 				E7AD51D42BFE978D0065BB1B /* SplashScreenView.swift */,
@@ -191,6 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				E7B8F9AD2C0E6DC000CAD5BF /* Exercise.swift */,
+				E714BB9D2C141207002610AC /* Workout.swift */,
+				E7B249FE2C239596009D22B8 /* WorkoutExercise.swift */,
+				E7B249FC2C224425009D22B8 /* ExerciseSet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,9 +222,6 @@
 				E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */,
 				E78F86A32C2D1BAF0088186D /* WorkoutCardView.swift */,
 				E7B8F9BC2C12811000CAD5BF /* RestTimerView.swift */,
-				E7B249FC2C224425009D22B8 /* ExerciseSet.swift */,
-				E714BB9D2C141207002610AC /* Workout.swift */,
-				E7B249FE2C239596009D22B8 /* WorkoutExercise.swift */,
 				E7B24A042C2B8199009D22B8 /* WorkoutExerciseView.swift */,
 				E7B24A062C2B89D6009D22B8 /* ExerciseSetView.swift */,
 			);
@@ -368,6 +371,7 @@
 				E79FAE402BF859C60001033F /* ContentView.swift in Sources */,
 				E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */,
 				E79FAE3E2BF859C60001033F /* fitnessappApp.swift in Sources */,
+				E74262042C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift in Sources */,
 				E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */,
 				E7B249FD2C224425009D22B8 /* ExerciseSet.swift in Sources */,
 				E7B249FF2C239596009D22B8 /* WorkoutExercise.swift in Sources */,
