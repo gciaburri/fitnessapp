@@ -14,7 +14,7 @@ struct WorkoutsView: View {
 
     var body: some View {
         List {
-            ForEach(workouts, id: \.self) { workout in
+            ForEach(workouts.filter {$0.completed}, id: \.self) { workout in
                 WorkoutCardView(workout: workout)
             }.onDelete(perform: removeWorkout)
         }

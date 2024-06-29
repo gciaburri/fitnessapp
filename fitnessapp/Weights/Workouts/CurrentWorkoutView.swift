@@ -13,6 +13,7 @@ struct CurrentWorkoutView: View {
     @State private var selectedExercises = Set<UUID>()
     @State private var isSelectingExercises = false
     @Binding var currentWorkout: Workout?
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         if let currentWorkout = currentWorkout {
@@ -37,6 +38,24 @@ struct CurrentWorkoutView: View {
                         ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
                     }
                 })
+                if currentWorkout.workoutExercises.isEmpty {
+                    Button(action: {
+                        modelContext.delete(currentWorkout)
+                        self.currentWorkout = nil
+                        dismiss()
+                    }) {
+                        Text("Cancel Workout")
+                    }
+                } else {
+                    Button(action: {
+                        currentWorkout.completed = true
+                        self.currentWorkout = nil
+                        dismiss()
+                        //                    modelContext.save()
+                    }) {
+                        Text("Finish Workout")
+                    }
+                }
             }
         } else {
             Text("No current workout")

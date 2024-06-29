@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ViewCoordinator: View {
     @State private var isActive = false
-//    @State var currentWorkout: Workout? = nil
+    @State var currentWorkout: Workout? = nil
     
     var body: some View {
         if isActive {
             ContentView()
-//                .environment(\.currentWorkout, $currentWorkout)
+                .environment(\.currentWorkout, $currentWorkout)
         }else {
             SplashScreenView(isActive: $isActive)
         }

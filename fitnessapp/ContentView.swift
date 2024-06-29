@@ -12,20 +12,26 @@ struct ContentView: View {
     @Environment(\.currentWorkout) var currentWorkout
 
     var body: some View {
-        TabView {
-            WeightsView()
-                .tabItem {
-                    Label("Weights", systemImage: "dumbbell.fill")
-                
+        ZStack{
+            TabView {
+                Group {
+                    ResumeWorkoutView(content: WeightsView())
+                        .tabItem {
+                            Label("Weights", systemImage: "dumbbell.fill")
+                        }
+                    NutritionView()
+                        .tabItem {
+                            Label("Nutrition", systemImage: "fork.knife")
+                        }
+                    RunView()
+                        .tabItem {
+                            Label("Run", systemImage: "figure.run")
+                        }
                 }
-            NutritionView()
-                .tabItem {
-                    Label("Nutrition", systemImage: "fork.knife")
-                }
-            RunView()
-                .tabItem {
-                    Label("Run", systemImage: "figure.run")
-                }
+                .toolbarBackground(.white, for: .tabBar)
+                .toolbarBackground(.visible, for: .tabBar)
+            }
+            
         }
     }
 }

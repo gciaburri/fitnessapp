@@ -10,7 +10,7 @@ import SwiftData
 struct StartWorkoutView: View {
     @Environment(\.modelContext) var modelContext
     @Query var workouts: [Workout]
-    @State var currentWorkout: Workout?
+    @Environment(\.currentWorkout) var currentWorkout
     @State private var showingWorkout = false
 
     
@@ -20,7 +20,7 @@ struct StartWorkoutView: View {
                 Text("Start Workout")
                 Button(action: {
                     if let existingWorkout = workouts.first(where: { !$0.completed}) {
-                        currentWorkout = existingWorkout
+                        currentWorkout.wrappedValue = existingWorkout
                     } else {
                         let newWorkout = Workout(title: "New Workout")
                         addNewWorkout(newWorkout: newWorkout)
@@ -30,10 +30,11 @@ struct StartWorkoutView: View {
                     Text("Start New Workout")
                 }
                 .sheet(isPresented: $showingWorkout) {
-                    NavigationStack {
-                        CurrentWorkoutView(currentWorkout: $currentWorkout)
+                    if let _ = currentWorkout.wrappedValue {
+                        NavigationStack {
+                            CurrentWorkoutView(currentWorkout: currentWorkout)
+                        }
                     }
-                    .presentationDetents([.height(100), .large])
                 }
                 
                 NavigationLink {
@@ -47,7 +48,7 @@ struct StartWorkoutView: View {
     func addNewWorkout(newWorkout: Workout) {
         let newWorkout = Workout(title: "New Workout")
         modelContext.insert(newWorkout)
-        currentWorkout = newWorkout
+        currentWorkout.wrappedValue = newWorkout
     }
 }
 

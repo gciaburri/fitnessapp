@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E714BB9E2C141207002610AC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E714BB9D2C141207002610AC /* Workout.swift */; };
 		E74262042C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74262032C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift */; };
+		E74262062C2F59D8001E89D4 /* ResumeWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74262052C2F59D8001E89D4 /* ResumeWorkoutView.swift */; };
 		E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */; };
 		E765A99C2BFEAB4E0062E5DA /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */; };
 		E77DA1382C0ED9E100F899EE /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		E714BB9D2C141207002610AC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		E74262032C2E3EC4001E89D4 /* EnvironmentValues+CurrentWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+CurrentWorkout.swift"; sourceTree = "<group>"; };
+		E74262052C2F59D8001E89D4 /* ResumeWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeWorkoutView.swift; sourceTree = "<group>"; };
 		E75DA6932C1168CC009C3046 /* ExerciseDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailEditView.swift; sourceTree = "<group>"; };
 		E765A99B2BFEAB4E0062E5DA /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		E77DA1372C0ED9E100F899EE /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				E7B8F9BC2C12811000CAD5BF /* RestTimerView.swift */,
 				E7B24A042C2B8199009D22B8 /* WorkoutExerciseView.swift */,
 				E7B24A062C2B89D6009D22B8 /* ExerciseSetView.swift */,
+				E74262052C2F59D8001E89D4 /* ResumeWorkoutView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7AD51D32BFE974A0065BB1B /* RunView.swift in Sources */,
+				E74262062C2F59D8001E89D4 /* ResumeWorkoutView.swift in Sources */,
 				E7AD51CF2BFE971F0065BB1B /* NutritionView.swift in Sources */,
 				E7B24A052C2B8199009D22B8 /* WorkoutExerciseView.swift in Sources */,
 				E714BB9E2C141207002610AC /* Workout.swift in Sources */,

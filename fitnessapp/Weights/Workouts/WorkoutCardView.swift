@@ -29,10 +29,9 @@ struct WorkoutCardView: View {
             HStack {
                 VStack(alignment: .leading) {
                     ForEach(workout.workoutExercises) { workoutExercise in
-                        let bestWeightString = workoutExercise.bestSet.weight.formatted(.number.precision(.fractionLength(2)))
+                        let bestWeightString = workoutExercise.bestSet.weight.formatted(.number.precision(.fractionLength(0)))
                         HStack {
                             Text("\(workoutExercise.sets.count) x \(workoutExercise.exercise?.title ?? "Empty")")
-                                .font(.footnote)
                             Spacer()
                             Text("\(bestWeightString)lbs x \(workoutExercise.bestSet.reps)")
                         }
