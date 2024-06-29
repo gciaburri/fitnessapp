@@ -25,14 +25,21 @@ struct CurrentWorkoutView: View {
                     ForEach(currentWorkout.workoutExercises) { workoutExercise in
                         WorkoutExerciseView(workoutExercise: workoutExercise)
                     }
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            isSelectingExercises = true
+                        }) {
+                            Text("Add Exercises")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        Spacer()
+                    }
+                    .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
                 
-                Button(action: {
-                    isSelectingExercises = true
-                }) {
-                    Text("Select Exercises")
-                }
+                
                 .sheet(isPresented: $isSelectingExercises, content: {
                     NavigationStack {
                         ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
@@ -51,7 +58,6 @@ struct CurrentWorkoutView: View {
                         currentWorkout.completed = true
                         self.currentWorkout = nil
                         dismiss()
-                        //                    modelContext.save()
                     }) {
                         Text("Finish Workout")
                     }

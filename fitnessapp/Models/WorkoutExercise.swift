@@ -26,6 +26,8 @@ class WorkoutExercise: Identifiable {
         context.insert(newSet)
         
     }
+    
+    
     var sortedSets: [ExerciseSet] {
         get {
             sets.sorted(by: {$0.setNumber < $1.setNumber})

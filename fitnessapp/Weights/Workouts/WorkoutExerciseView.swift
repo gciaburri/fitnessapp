@@ -20,6 +20,7 @@ struct WorkoutExerciseView: View {
                 Image(systemName: "ellipsis")
             }
             .padding(.vertical, 1)
+            
             HStack {
                 Text("Set")
                     .frame(maxWidth: .infinity)
@@ -32,21 +33,27 @@ struct WorkoutExerciseView: View {
                 Image(systemName: "checkmark.rectangle.fill")
                     .frame(maxWidth: .infinity)
             }
-            ForEach(workoutExercise.sortedSets) {set in
-                        ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
-                            .padding(.vertical, 3)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    .listRowSeparator(.hidden)
-                
-                Text("test")
+            
+            ForEach(workoutExercise.sortedSets) { set in
+                ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
+                    .padding(.vertical, 3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .onDelete(perform: removeSet)
+            .listRowSeparator(.hidden)
+            
             Button(action: {workoutExercise.addSet(context: modelContext)}) {
                     Text("Add Set")
                 }
                 .padding(.top)
-                .buttonStyle(.plain)
-            
-
+                .buttonStyle(.bordered)
+        }
+    }
+    // broken
+    func removeSet(at offsets: IndexSet) {
+        for offset in offsets {
+            let set = workoutExercise.sets[offset]
+            modelContext.delete(set)
         }
     }
 }
