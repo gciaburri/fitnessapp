@@ -13,7 +13,6 @@ struct WorkoutExerciseView: View {
     let setNumber = 0
 
     var body: some View {
-        LazyVStack {
             HStack {
                 Text(workoutExercise.exercise?.title ?? "Empty")
                 Spacer()
@@ -33,27 +32,32 @@ struct WorkoutExerciseView: View {
                 Image(systemName: "checkmark.rectangle.fill")
                     .frame(maxWidth: .infinity)
             }
-            
-            ForEach(workoutExercise.sortedSets) { set in
-                ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
-                    .padding(.vertical, 3)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            .onDelete(perform: removeSet)
-            .listRowSeparator(.hidden)
-            
-            Button(action: {workoutExercise.addSet(context: modelContext)}) {
+            List {
+                ForEach(workoutExercise.sets) { set in
+                    ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
+                        .padding(.vertical, 3)
+                }
+                .onDelete(perform: removeSet)
+                //                .listRowSeparator(.hidden)
+                Button(action: {workoutExercise.addSet(context: modelContext)}) {
                     Text("Add Set")
                 }
                 .padding(.top)
                 .buttonStyle(.bordered)
-        }
+            }
     }
-    // broken
+    
     func removeSet(at offsets: IndexSet) {
         for offset in offsets {
-            let set = workoutExercise.sets[offset]
+            let objectID = workoutExercise.sets[offset].persistentModelID
+            let set = modelContext.model(for: objectID)
             modelContext.delete(set)
+        }
+        workoutExercise.sets.remove(atOffsets: offsets)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context \(error)")
         }
     }
 }

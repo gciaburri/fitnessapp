@@ -18,51 +18,51 @@ struct CurrentWorkoutView: View {
     var body: some View {
         if let currentWorkout = currentWorkout {
             VStack {
-                Text("Current Workout")
-                    .font(.headline)
-                    .padding()
-                List {
-                    ForEach(currentWorkout.workoutExercises) { workoutExercise in
-                        WorkoutExerciseView(workoutExercise: workoutExercise)
-                    }
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isSelectingExercises = true
-                        }) {
-                            Text("Add Exercises")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        Spacer()
-                    }
-                    .listRowSeparator(.hidden)
+            Text("Current Workout")
+                .font(.headline)
+                .padding()
+            List {
+                ForEach(currentWorkout.workoutExercises) { workoutExercise in
+                    WorkoutExerciseView(workoutExercise: workoutExercise)
                 }
-                .listStyle(.plain)
-                
-                
-                .sheet(isPresented: $isSelectingExercises, content: {
-                    NavigationStack {
-                        ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
-                    }
-                })
-                if currentWorkout.workoutExercises.isEmpty {
+                HStack {
+                    Spacer()
                     Button(action: {
-                        modelContext.delete(currentWorkout)
-                        self.currentWorkout = nil
-                        dismiss()
+                        isSelectingExercises = true
                     }) {
-                        Text("Cancel Workout")
+                        Text("Add Exercises")
                     }
-                } else {
-                    Button(action: {
-                        currentWorkout.completed = true
-                        self.currentWorkout = nil
-                        dismiss()
-                    }) {
-                        Text("Finish Workout")
-                    }
+                    .buttonStyle(.borderedProminent)
+                    Spacer()
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            
+            
+            .sheet(isPresented: $isSelectingExercises, content: {
+                NavigationStack {
+                    ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
+                }
+            })
+            if currentWorkout.workoutExercises.isEmpty {
+                Button(action: {
+                    modelContext.delete(currentWorkout)
+                    self.currentWorkout = nil
+                    dismiss()
+                }) {
+                    Text("Cancel Workout")
+                }
+            } else {
+                Button(action: {
+                    currentWorkout.completed = true
+                    self.currentWorkout = nil
+                    dismiss()
+                }) {
+                    Text("Finish Workout")
                 }
             }
+        }
         } else {
             Text("No current workout")
         }

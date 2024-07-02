@@ -55,6 +55,7 @@ struct ExerciseSelectionView: View {
         let selectedExercisesList = exercises.filter { selectedExercises.contains($0.id) }
         for exercise in selectedExercisesList {
             let workoutExercise = WorkoutExercise(exercise: exercise)
+            workoutExercise.addSet(context: context)
             currentWorkout!.workoutExercises.append(workoutExercise)
             modelContext.insert(workoutExercise)
         }
