@@ -32,34 +32,20 @@ struct WorkoutExerciseView: View {
                 Image(systemName: "checkmark.rectangle.fill")
                     .frame(maxWidth: .infinity)
             }
-            List {
-                ForEach(workoutExercise.sets) { set in
-                    ExerciseSetView(exerciseSet: set, workoutExercise: $workoutExercise)
-                        .padding(.vertical, 3)
-                }
-                .onDelete(perform: removeSet)
-                //                .listRowSeparator(.hidden)
+        ForEach(Array(workoutExercise.sortedSets.enumerated()), id: \.element.id) { index, set in
+            ExerciseSetView(exerciseSet: set, setNumber: index + 1, workoutExercise: $workoutExercise)
+                    .padding(.vertical, 3)
+            }
+//                                .listRowSeparator(.hidden)
                 Button(action: {workoutExercise.addSet(context: modelContext)}) {
                     Text("Add Set")
                 }
                 .padding(.top)
                 .buttonStyle(.bordered)
-            }
+            
     }
     
-    func removeSet(at offsets: IndexSet) {
-        for offset in offsets {
-            let objectID = workoutExercise.sets[offset].persistentModelID
-            let set = modelContext.model(for: objectID)
-            modelContext.delete(set)
-        }
-        workoutExercise.sets.remove(atOffsets: offsets)
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context \(error)")
-        }
-    }
+    
 }
 
 //#Preview {

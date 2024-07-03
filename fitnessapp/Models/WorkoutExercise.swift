@@ -13,7 +13,7 @@ class WorkoutExercise: Identifiable {
     var id: UUID
     var exercise: Exercise?
     var workout: Workout?
-    var sets: [ExerciseSet] = [ExerciseSet]()
+    @Relationship(deleteRule: .cascade) var sets: [ExerciseSet] = []
     
     init(id: UUID = UUID(), exercise: Exercise, sets: [ExerciseSet] = []) {
         self.id = id
@@ -21,19 +21,27 @@ class WorkoutExercise: Identifiable {
         self.sets = sets
     }
     func addSet(context: ModelContext) {
-        let newSet = ExerciseSet(setNumber: self.sets.count + 1, reps: 0, weight: 0)
+        let newSet = ExerciseSet(reps: 0, weight: 0)
         self.sets.append(newSet)
         context.insert(newSet)
         
     }
-    
+    func removeSet(at offsets: IndexSet, modelContext: ModelContext) {
+        for offset in offsets {
+            let objectID = self.sets[offset].persistentModelID
+            let set = modelContext.model(for: objectID)
+            modelContext.delete(set)
+        }
+        self.sets.remove(atOffsets: offsets)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+    }
     
     var sortedSets: [ExerciseSet] {
-        get {
-            sets.sorted(by: {$0.setNumber < $1.setNumber})
-        } set {
-            sets = newValue
-        }
+        sets.sorted(by: {$0.date < $1.date})
     }
     var bestSet: ExerciseSet {
         return sets.max {$1.weight > $0.weight} ?? ExerciseSet.emptySet
