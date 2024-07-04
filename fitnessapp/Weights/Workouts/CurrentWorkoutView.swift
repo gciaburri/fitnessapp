@@ -23,18 +23,18 @@ struct CurrentWorkoutView: View {
                 .padding()
             List {
                 ForEach(currentWorkout.workoutExercises) { workoutExercise in
-                    WorkoutExerciseView(workoutExercise: workoutExercise)
+                    WorkoutExerciseView(workout: currentWorkout, workoutExercise: workoutExercise)
                 }
                 HStack {
-                    Spacer()
                     Button(action: {
                         isSelectingExercises = true
                     }) {
                         Text("Add Exercises")
+                            .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
-                    Spacer()
                 }
+                
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
@@ -45,23 +45,29 @@ struct CurrentWorkoutView: View {
                     ExerciseSelectionView(selectedExercises: $selectedExercises, currentWorkout: $currentWorkout)
                 }
             })
-            if currentWorkout.workoutExercises.isEmpty {
-                Button(action: {
-                    modelContext.delete(currentWorkout)
-                    self.currentWorkout = nil
-                    dismiss()
-                }) {
-                    Text("Cancel Workout")
+                HStack {
+                    Button(role: .destructive, action: {
+                        modelContext.delete(currentWorkout)
+                        self.currentWorkout = nil
+                        dismiss()
+                    }) {
+                        Text("Cancel Workout")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    if !currentWorkout.workoutExercises.isEmpty {
+                        Button(action: {
+                            currentWorkout.completed = true
+                            self.currentWorkout = nil
+                            dismiss()
+                        }) {
+                            Text("Finish Workout")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
                 }
-            } else {
-                Button(action: {
-                    currentWorkout.completed = true
-                    self.currentWorkout = nil
-                    dismiss()
-                }) {
-                    Text("Finish Workout")
-                }
-            }
+                .padding()
         }
         } else {
             Text("No current workout")

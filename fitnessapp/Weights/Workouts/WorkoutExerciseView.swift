@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorkoutExerciseView: View {
     @Environment(\.modelContext) var modelContext
+    @Bindable var workout: Workout
     @State var workoutExercise: WorkoutExercise
     let setNumber = 0
 
@@ -16,7 +17,16 @@ struct WorkoutExerciseView: View {
             HStack {
                 Text(workoutExercise.exercise?.title ?? "Empty")
                 Spacer()
-                Image(systemName: "ellipsis")
+                Menu {
+                    Button(role: .destructive, action: {
+                        deleteWorkoutExercise()
+                    }) {
+                        Text("Delete")
+                            .foregroundStyle(.red)
+                    }
+                } label: {
+                    Label("", systemImage: "ellipsis")
+                }
             }
             .padding(.vertical, 1)
             
@@ -34,18 +44,24 @@ struct WorkoutExerciseView: View {
             }
         ForEach(Array(workoutExercise.sortedSets.enumerated()), id: \.element.id) { index, set in
             ExerciseSetView(exerciseSet: set, setNumber: index + 1, workoutExercise: $workoutExercise)
-                    .padding(.vertical, 3)
             }
-//                                .listRowSeparator(.hidden)
+                                .listRowSeparator(.hidden)
                 Button(action: {workoutExercise.addSet(context: modelContext)}) {
                     Text("Add Set")
+                        .frame(maxWidth: .infinity)
                 }
                 .padding(.top)
                 .buttonStyle(.bordered)
-            
     }
-    
-    
+    private func deleteWorkoutExercise() {
+            workout.removeExercise(workoutExercise)
+            modelContext.delete(workoutExercise)
+            do {
+                try modelContext.save()
+            } catch {
+                print("Error deleting workout exercise: \(error)")
+            }
+        }
 }
 
 //#Preview {
