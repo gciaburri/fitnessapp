@@ -33,6 +33,9 @@ struct ContentView: View {
             }
             
         }
+        .onAppear {
+                    print("ContentView appeared, current workout: \(currentWorkout.wrappedValue?.title ?? "None")")
+                }
     }
 }
 

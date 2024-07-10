@@ -43,6 +43,7 @@ struct ExerciseSelectionView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button(action: {
                     addSelectedExercisesToWorkout(context: modelContext)
+                    selectedExercises.removeAll()
                     dismiss()
                 }) {
                     Text("Done")

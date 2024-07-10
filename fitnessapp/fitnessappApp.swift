@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct fitnessappApp: App {
     let modelContainer: ModelContainer
+    @State var currentWorkout: Workout? = nil
 
     init() {
         do {
@@ -21,8 +22,9 @@ struct fitnessappApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ViewCoordinator()
+            ViewCoordinator(currentWorkout: $currentWorkout)
                 .modelContainer(modelContainer)
+                .environment(\.currentWorkout, $currentWorkout)
 
         }
         
