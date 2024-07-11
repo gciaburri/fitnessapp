@@ -11,12 +11,22 @@ import SwiftData
 struct WorkoutsView: View {
     @Environment(\.modelContext) var modelContext
     @Query var workouts: [Workout]
+    @State private var isPresentingWorkout: Workout? = nil
 
     var body: some View {
         List {
             ForEach(workouts.filter {$0.completed}, id: \.self) { workout in
-                WorkoutCardView(workout: workout)
+                Button(action: {
+                    isPresentingWorkout = workout
+                }) {
+                    WorkoutCardView(workout: workout)
+                }
             }.onDelete(perform: removeWorkout)
+        }
+        .sheet(item: $isPresentingWorkout) { workout in
+            NavigationStack {
+                WorkoutDetailView(workout: workout)
+            }
         }
     }
     func removeWorkout(at offsets: IndexSet) {
@@ -27,6 +37,6 @@ struct WorkoutsView: View {
     }
 }
 
-#Preview {
-    WorkoutsView()
-}
+//#Preview {
+//    WorkoutsView()
+//}

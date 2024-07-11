@@ -54,14 +54,14 @@ struct WorkoutExerciseView: View {
                 .buttonStyle(.bordered)
     }
     private func deleteWorkoutExercise() {
-            workout.removeExercise(workoutExercise)
-            modelContext.delete(workoutExercise)
-            do {
-                try modelContext.save()
-            } catch {
-                print("Error deleting workout exercise: \(error)")
-            }
+        workout.removeExercise(workoutExercise, context: modelContext)
+        modelContext.delete(workoutExercise)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error deleting workout exercise: \(error)")
         }
+    }
 }
 
 //#Preview {

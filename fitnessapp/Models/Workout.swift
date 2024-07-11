@@ -14,8 +14,9 @@ class Workout {
     var title: String
     var dateCreated: Date
     var completed: Bool = false
-    var workoutExercises: [WorkoutExercise]
-    
+    @Relationship(deleteRule: .cascade, inverse: \WorkoutExercise.workout)
+    var workoutExercises: [WorkoutExercise] = []
+
     init(id: UUID = UUID(), title: String, dateCreated: Date = Date(), completed: Bool = false, workoutExercises: [WorkoutExercise] = []) {
         self.id = id
         self.title = title
@@ -24,13 +25,15 @@ class Workout {
         self.workoutExercises = workoutExercises
     }
     
-    func addExercise(_ workoutExercise: WorkoutExercise) {
+    func addExercise(_ workoutExercise: WorkoutExercise, context: ModelContext) {
         workoutExercises.append(workoutExercise)
+        context.insert(workoutExercise)
     }
     
-    func removeExercise(_ workoutExercise: WorkoutExercise) {
+    func removeExercise(_ workoutExercise: WorkoutExercise, context: ModelContext) {
         if let index = workoutExercises.firstIndex(where: { $0.id == workoutExercise.id}) {
             workoutExercises.remove(at: index)
+            context.delete(workoutExercise)
         }
     }
 }

@@ -16,6 +16,8 @@ class Exercise: Equatable {
     var bodyPart: String
     var info: String
     var category: String
+    @Relationship(deleteRule: .cascade, inverse: \WorkoutExercise.exercise)
+    var exerciseLog: [WorkoutExercise] = []
     
     static func == (lhs: Exercise, rhs: Exercise) -> Bool {
             return lhs.id == rhs.id

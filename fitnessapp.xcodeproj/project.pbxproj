@@ -38,6 +38,7 @@
 		E7B8F9B62C127A6200CAD5BF /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9B52C127A6200CAD5BF /* StartWorkoutView.swift */; };
 		E7B8F9BB2C127C1A00CAD5BF /* CurrentWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */; };
 		E7B8F9BD2C12811000CAD5BF /* RestTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8F9BC2C12811000CAD5BF /* RestTimerView.swift */; };
+		E7D156C82C3F50A8000A78DF /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D156C72C3F50A8000A78DF /* WorkoutDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E7B8F9B52C127A6200CAD5BF /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		E7B8F9BA2C127C1A00CAD5BF /* CurrentWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWorkoutView.swift; sourceTree = "<group>"; };
 		E7B8F9BC2C12811000CAD5BF /* RestTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimerView.swift; sourceTree = "<group>"; };
+		E7D156C72C3F50A8000A78DF /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				E7B24A042C2B8199009D22B8 /* WorkoutExerciseView.swift */,
 				E7B24A062C2B89D6009D22B8 /* ExerciseSetView.swift */,
 				E74262052C2F59D8001E89D4 /* ResumeWorkoutView.swift */,
+				E7D156C72C3F50A8000A78DF /* WorkoutDetailView.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E7B8F9B42C12774700CAD5BF /* WorkoutsView.swift in Sources */,
 				E7B8F9AE2C0E6DC000CAD5BF /* Exercise.swift in Sources */,
 				E78F86A42C2D1BAF0088186D /* WorkoutCardView.swift in Sources */,
+				E7D156C82C3F50A8000A78DF /* WorkoutDetailView.swift in Sources */,
 				E7AD51CD2BFE97010065BB1B /* WeightsView.swift in Sources */,
 				E79FAE402BF859C60001033F /* ContentView.swift in Sources */,
 				E75DA6942C1168CC009C3046 /* ExerciseDetailEditView.swift in Sources */,
