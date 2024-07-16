@@ -11,20 +11,22 @@ import SwiftData
 struct WorkoutsView: View {
     @Environment(\.modelContext) var modelContext
     @Query var workouts: [Workout]
-    @State private var isPresentingWorkout: Workout? = nil
+    @State private var selectedWorkout: Workout? = nil
+    @State private var isShowingPopup = false
 
     var body: some View {
         List {
             ForEach(workouts.filter {$0.completed}, id: \.self) { workout in
                 Button(action: {
-                    isPresentingWorkout = workout
+                    selectedWorkout = workout
+                    isShowingPopup = true
                 }) {
                     WorkoutCardView(workout: workout)
                 }
             }.onDelete(perform: removeWorkout)
         }
-        .sheet(item: $isPresentingWorkout) { workout in
-            NavigationStack {
+        if isShowingPopup, let workout = selectedWorkout {
+            Popup(isPresented: $isShowingPopup) {
                 WorkoutDetailView(workout: workout)
             }
         }

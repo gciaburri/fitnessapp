@@ -41,7 +41,7 @@ class WorkoutExercise: Identifiable {
     }
     
     var sortedSets: [ExerciseSet] {
-        sets.sorted(by: {$0.date < $1.date})
+        return sets.sorted {$0.date < $1.date}
     }
     var bestSet: ExerciseSet {
         return sets.max {$1.weight > $0.weight} ?? ExerciseSet.emptySet

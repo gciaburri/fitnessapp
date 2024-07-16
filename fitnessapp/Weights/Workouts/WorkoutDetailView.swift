@@ -13,24 +13,26 @@ struct WorkoutDetailView: View {
     let workout: Workout
     
     var body: some View {
-        Text(workout.title)
-        VStack(alignment: .leading) {
-            Text(workout.dateCreated.formatted(date: .complete, time: .shortened))
-            ForEach(workout.workoutExercises, id: \.id) { (workoutExercise: WorkoutExercise) in
-                VStack {
-                    Text("\(workoutExercise.exercise?.title ?? "Empty")")
-                    VStack {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(workout.title)
+                Text(workout.dateCreated.formatted(date: .complete, time: .shortened))
+                ForEach(workout.workoutExercises, id: \.id) { (workoutExercise: WorkoutExercise) in
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(workoutExercise.exercise?.title ?? "Empty")")
                         ForEach(Array(workoutExercise.sortedSets.enumerated()), id: \.element.id) { index, set in
                             HStack {
                                 Text("Set \(index + 1) ")
-                                padding()
-                                Text("\(set.weight)lbs x \(set.reps)")
+                                    .padding()
+                                Text("\(set.weight, specifier: "%.1f")lbs x \(set.reps)")
                             }
+                            .padding(.horizontal)
                         }
                     }
+                    .padding(.vertical, 2)
                 }
             }
-            
+            .padding()
         }
     }
 }
